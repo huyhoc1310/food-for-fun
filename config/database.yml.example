@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: host
+  username: username
+  password: password
+
+development:
+  <<: *default
+  database: food_development
+
+test:
+  <<: *default
+  database: food_test
+
+production:
+  <<: *default
+  database: food
