@@ -1,0 +1,13 @@
+<%= provide :title, t(".title") %>
+<div class="py-5 text-center welcome-home">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="display-3 mb-4"><%= t ".welcome" %></h1>
+        <p class="lead mb-5"><%= t ".welcome_text" %></p>
+        <%= link_to t("layouts.header.signin"), root_path, class: "btn btn-lg mx-1 btn-secondary" %>
+        <%= link_to t("layouts.header.signup"), root_path, class: "btn btn-lg btn-primary mx-1" %>
+      </div>
+    </div>
+  </div>
+</div>
