@@ -6,4 +6,9 @@ class Restaurant < ApplicationRecord
   has_many :notifications
   has_many :relationships, dependent: :destroy
   has_many :users, through: :relationships
+
+  scope :sort_restaurant, (lambda do
+    select(:id, :name, :description, :address,
+      :phone_number, :user_id).order :name
+  end)
 end

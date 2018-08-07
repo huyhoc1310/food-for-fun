@@ -1,0 +1,25 @@
+<% provide :title, t(".title") %>
+<h2 class="text-center"><%= t ".title" %></h2>
+<div class="row justify-content-center">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @restaurant] do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: "form-control" %>
+
+      <%= f.label :user_id %>
+      <%= f.text_field :user_id, class: "form-control" %>
+      
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

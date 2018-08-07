@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_094041) do
+ActiveRecord::Schema.define(version: 2018_08_07_101802) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -87,6 +87,10 @@ ActiveRecord::Schema.define(version: 2018_08_02_094041) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
+    t.index ["users_id"], name: "index_restaurants_on_users_id"
   end
 
   create_table "suggests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,4 +116,5 @@ ActiveRecord::Schema.define(version: 2018_08_02_094041) do
   add_foreign_key "orders", "users"
   add_foreign_key "relationships", "restaurants"
   add_foreign_key "relationships", "users"
+  add_foreign_key "restaurants", "users"
 end
