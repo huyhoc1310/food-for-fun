@@ -255,6 +255,8 @@ en:
       cancel_success: "Cancel order success!"
       cancel_failure: "Cancel order failure!"
       no_order: "Your order is blank!"
+      confirm_received_success: "This order was received"
+      confirm_received_failure: "This order wasn't received"
     submit:
       confirm_order: "Confirm order"
       accept_order: "Accept order"
@@ -262,6 +264,7 @@ en:
       cancel_order: "Cancel order"
       orders_need_confirm: "All orders need confirmation"
       all_orders: "All your orders"
+      confirm_receipt: "Confirm receipt"
     label:
       customer: "Customer"
       customer_add: "Address"
@@ -278,7 +281,7 @@ en:
       unordered: "Your order haven't ordered yet."
       ordered: "Your order is watting restaurant's confirmation."
       accepted: "Your order is shipping!"
-      received: "Your order is sended!"
+      received: "Your order is sended successfully!"
       cancel: "This order is canceled!"
       sended: "This order is done!"
       not_confirmed: "This order is not confirmed!"

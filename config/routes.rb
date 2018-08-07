@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :orders, only: [:index, :update]
+    resources :orders, only: [:index, :update] do
+      patch "/confirm_receive", to: "orders#confirm_receive"
+    end
   end
 
   resources :restaurants do
