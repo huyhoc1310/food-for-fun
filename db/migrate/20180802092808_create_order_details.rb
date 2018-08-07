@@ -4,6 +4,7 @@ class CreateOrderDetails < ActiveRecord::Migration[5.2]
       t.integer :quantity
       t.integer :price
       t.float :total_price
+      t.integer :restaurant_id
       t.references :order, foreign_key: true
       t.references :food, foreign_key: true
 

@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_08_19_033805) do
     t.integer "quantity"
     t.integer "price"
     t.float "total_price"
+    t.integer "restaurant_id"
     t.bigint "order_id"
     t.bigint "food_id"
     t.datetime "created_at", null: false

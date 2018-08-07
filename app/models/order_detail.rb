@@ -4,15 +4,18 @@ class OrderDetail < ApplicationRecord
 
   before_save :set_price
   before_save :set_total_price
+  before_save :set_restaurant_id
 
   scope :list_order_details, (lambda do |id|
     joins(:order).select("orders.id as id, order_details.id as od_id, order_details.total_price as total, order_details.quantity as quantity, order_details.food_id as f_id")
-      .where("orders.user_id= #{id} and orders.status = 'unordered'")
+      .where("orders.user_id= #{id} and orders.status = 0")
   end)
 
   scope :find_order_detail, (lambda do |f_id, u_id|
     joins(:order).select("order_details.id as id, order_details.quantity as quantity, order_details.order_id as order_id, order_details.price as price").where("order_details.food_id = #{f_id} and orders.user_id = #{u_id} and orders.status = 'unordered'")
   end)
+
+  scope :find_or_detail, ->(id){where order_id: id}
 
   def price
     if persisted?
@@ -26,6 +29,14 @@ class OrderDetail < ApplicationRecord
     price * quantity
   end
 
+  def restaurant_id
+    if persisted?
+      self[:restaurant_id]
+    else
+      food.restaurant_id
+    end
+  end
+
   private
 
   def set_price
@@ -34,5 +45,9 @@ class OrderDetail < ApplicationRecord
 
   def set_total_price
     self[:total_price] = quantity * set_price
+  end
+
+  def set_restaurant_id
+    self[:restaurant_id] = restaurant_id
   end
 end

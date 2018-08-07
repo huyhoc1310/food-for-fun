@@ -243,8 +243,24 @@ en:
     message:
       ordered_success: "Ordered succesfully!"
       ordered_failure: "Ordered failure!"
+      no_order: "You don't have any orders!"
+      accepted_order: "Order can be completed!"
+      unaccepted_order: "Order can't be completed"
     submit:
       confirm_order: "Confirm order"
+      accept_order: "Accept order"
+      status_accepter: "Your order is completed."
+    label:
+      customer: "Customer"
+      customer_add: "Address"
+      customer_phone: "Phone"
+      restaurant: "Name"
+      food: "Food"
+      quantity: "Quantity"
+      date: "Date"
+      sum_price: "Sum price"
+      sum_order: "Sum order"
+      all_order_accepted: "List order were be accepted"
   restaurant:
     about_us: "About us"
   comments:

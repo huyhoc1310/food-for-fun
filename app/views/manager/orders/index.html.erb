@@ -1,0 +1,28 @@
+<% if @orders.blank? %>
+    <h1><%= t "order.message.no_order" %></h1>
+<% else %>
+  <% @orders.each do |od_res| %>
+    <% if find_order_detail_o_id(od_res).count > 1 %>
+      <% find_order_detail_o_id(od_res).each do |detail| %>
+        <% if !check_order_restaurant(detail.restaurant_id, current_user.id).blank? %>
+          <div class="row col-md-12" id="each-detail">
+            <%= render "shared/detail_food", detail: detail %>
+            <%= render "shared/detail_user", od_res: od_res %>
+          </div>
+        <% end %>
+        <% next if check_order_restaurant(find_order_detail_o_id(od_res).first.restaurant_id, current_user.id).blank? %>
+      <% end %>
+      <%= render "manager/orders/form_submit", od_res: od_res %>
+    <% else %>
+      <% if !check_order_restaurant(find_order_detail_o_id(od_res.id).first.restaurant_id, current_user.id).blank? %>
+        <div class="row col-md-12" id="each-detail">
+          <%= render "shared/detail_food", detail: find_order_detail_o_id(od_res).first %>
+          <%= render "shared/detail_user", od_res: od_res %>
+        </div>
+        <%= render "manager/orders/form_submit", od_res: od_res %>
+      <% end %>
+      <% next if check_order_restaurant(find_order_detail_o_id(od_res.id).first.restaurant_id, current_user.id).blank? %>
+    <% end %>
+  <% end %>
+  <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+<% end %>

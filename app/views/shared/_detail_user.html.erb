@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <p><strong>
+    <%= t "order.label.customer" %>:&nbsp;<%= find_customer(od_res.user_id).name %>
+  </strong></p>
+  <p>
+    <%= t "order.label.customer_add" %>:&nbsp;<%= find_customer(od_res.user_id).address %>
+  </p>
+  <p>
+    <%= t "order.label.customer_phone" %>:&nbsp;<%= find_customer(od_res.user_id).phone_number %>
+  </p>
+</div>

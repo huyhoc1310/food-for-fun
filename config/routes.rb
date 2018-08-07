@@ -26,6 +26,11 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :restaurants, except: :destroy
+    resources :orders, only: [:index, :update]
+  end
+
+  namespace :user do
+    resources :orders, only: [:index, :update]
   end
 
   resources :restaurants do
@@ -47,6 +52,5 @@ Rails.application.routes.draw do
   get "/search", to: "search#index"
   get "/restaurants/:city", to: "restaurants#index"
   get "/foods/:category", to: "foods#index"
-  resources :orders, only: [:update, :delete]
   resources :order_details
 end

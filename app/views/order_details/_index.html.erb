@@ -1,6 +1,6 @@
 <% if @order_details.size > 0 %>
   <% @order_details.each do |c| %>
-    <div class="row col-md-12" style="padding-bottom: 30px">
+    <div class="row col-md-12" id="order-detail">
       <div class="col-md-3">
         <%= image_tag find_img_food(c.f_id).first.image.url, class: "img-food", crop: :fill %>
       </div>
@@ -11,15 +11,16 @@
         <p><%= t "order_detail.label.total" %>:&nbsp;<%= c.total %>&nbsp;$</p>
       </div>
       <div class="col-md-3">
-      <%= link_to "Delete", find_order_detail(c.od_id), method: :delete,
+
+      <%= link_to t("order_detail.submit.delete"), find_order_detail(c.od_id), method: :delete,
         data: { confirm: t("order_detail.submit.confirm_delete")}, remote: true,
         class: 'btn btn-danger' %>
       </div>
     </div>
   <% end %>
-  <%= link_to t("order.submit.confirm_order"), order_path(@order_details.first.id),
-    method: :patch, class:"btn btn-success"%>
-
+  <div class="col-md-12" id="confirm-order">
+    <%= link_to t("order.submit.confirm_order"), user_order_path(@order_details.first.id), method: :patch, class:"btn btn-success"%>
+  </div>
 <% else %>
   <h3><%= t "order_detail.message.nothing_od" %></h3>
 <% end %>
