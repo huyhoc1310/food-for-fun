@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="col-md-6 form-group" id="new_food">
+  <div class="col-md-12" style="text-align: center;">
     <h1><strong><%= t "food.title.create" %></strong></h1>
+  </div>
+  <div class="col-md-6 form-group" id="new_food">
     <%= form_for @food do |f| %>
 
       <%= f.label :name, t("food.label.name"), class: "required" %>
@@ -9,6 +11,11 @@
       <%= f.label :category, t("food.label.category"), class: "required" %>
       <%= f.collection_select :category_id, @categories,
           :id, :name, {prompt: "Select category"}, required: true,
+          class: "form-control" %>
+
+      <%= f.label :category, t("food.label.restaurant"), class: "required" %>
+      <%= f.collection_select :restaurant_id, @restaurants,
+          :id, :name, {prompt: "Select restaurant"}, required: true,
           class: "form-control" %>
 
       <%= f.label :description, t("food.label.description"), class: "required" %>

@@ -11,6 +11,16 @@
   box-sizing: border-box;
 }
 
+.container-fluid {
+  min-height: 500px;
+}
+
+footer {
+  position: absolute;
+  width:100%;
+  height: 80px;
+}
+
 /* form */
 
 input, textarea, select, .uneditable-input {
@@ -35,10 +45,25 @@ input {
   align-items: center !important;
 }
 
-img {
-  vertical-align: middle;
-  border-style: none;
+/* image */
+
+.img-food {
+  width: 100%;
+  height: 100%;
 }
+
+.img-food {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.img-food:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 
 /* edit */
 
@@ -55,17 +80,6 @@ img {
   padding:30px;
 }
 
-.img-food {
-  width: 100%;
-  height: auto;
-}
-
-.img-food:hover {
-  background-color: $azure;
-  color: $white;
-  transform: scale(1.1);
-}
-
 #i_edit {
   font-size:24px;
   color: $lightskyblue;
@@ -78,4 +92,46 @@ img {
 label.required:after{
   content:" *";
   color: $red;
+}
+
+.block-title {
+  text-align: center;
+  color: $chocolate;
+}
+
+/* card */
+
+.card-img-top {
+  height: 200px;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.card a.order {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid $white;
+  text-decoration: none;
+  color: $white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  opacity: 0;
+}
+.card a.order:hover {
+  background-color: $lightskyblue;
+}
+
+.card:hover a.order,
+.card.hover a.order {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
 }

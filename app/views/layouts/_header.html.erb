@@ -11,14 +11,30 @@
           <li class="nav-item mx-2">
             <%= link_to t(".restaurants"), manager_restaurants_path, class: "nav-link text-dark" %>
           </li>
+          <li class="nav-item mx-2">
+            <%= link_to t(".new_food"), new_food_path, class: "nav-link text-dark" %>
+          </li>
+          <li class="nav-item mx-2">
+            <%= link_to t(".orders"), root_path, class: "nav-link text-dark" %>
+          </li>
         <% elsif logged_in? && is_admin? %>
           <li class="nav-item mx-2">
             <%= link_to t(".restaurants"), admin_restaurants_path, class: "nav-link text-dark" %>
           </li>
-        <%end %>
-        <li class="nav-item mx-2">
-          <%= link_to t(".orders"), root_path, class: "nav-link text-dark" %>
-        </li>
+        <% else %>
+          <li class="nav-item mx-2">
+            <%= link_to t(".foods"), foods_path, class: "nav-link text-dark" %>
+          </li>
+          <li class="nav-item mx-2">
+            <%= link_to order_details_path, class: "nav-link text-dark" do %>
+              <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:24px">
+              </i>
+            <% end %>
+          </li>
+          <li class="nav-item mx-2">
+            <%= link_to t(".orders"), root_path, class: "nav-link text-dark" %>
+          </li>
+        <% end %>
         <li><%= render "search/form" %></li>
         <li><%= render "restaurants/filter_form" %></li>
       </ul>

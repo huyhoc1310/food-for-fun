@@ -4,14 +4,23 @@ class FoodsController < ApplicationController
   before_action :get_images, only: [:edit, :show]
   before_action :load_foods, only: :index
 
-  def index; end
+  def index
+    @foods = Food.all.page(params[:page]).per Settings.rows
+  end
 
   def show
     @category = Food.category params[:id]
+    @images = @food.images
+    @category = Food.select("foods.id, categories.name as name_category")
+                    .joins(:category)
+                    .where("foods.category_id = categories.id AND foods.id = #{params[:id]}")
   end
 
   def new
     @food = Food.new
+    @categories = Category.all
+    @restaurants = Restaurant.includes(:user)
+                             .where("restaurants.user_id = #{current_user.id}")
     Settings.image_times.times do
       @image = @food.images.build
     end
