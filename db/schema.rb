@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_101802) do
     t.text "description"
     t.float "price"
     t.integer "rate"
+    t.integer "status", default: 0
     t.bigint "restaurant_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false

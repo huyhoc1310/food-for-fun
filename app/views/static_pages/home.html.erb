@@ -14,17 +14,19 @@
         </div>
         <div class="col-md-12">
           <% find_food_restaurant(r.id).each do |f| %>
-            <p>
-              <i><strong><%= t "food.label.name" %>:</strong></i>&nbsp;
-              <%= link_to f.name, food_path(f.id) %>
-            </p>
-            <div class="row">
-              <% find_img_food(f.id).each do |i| %>
-                <div class="col-md-3">
-                  <%= image_tag i.image.url, class: "img-food", crop: :fill %>
-                </div>
-              <% end %>
-            </div>
+            <% if f.enable? %>
+              <p>
+                <i><strong><%= t "food.label.name" %>:</strong></i>&nbsp;
+                <%= link_to f.name, food_path(f.id) %>
+              </p>
+              <div class="row">
+                <% find_img_food(f.id).each do |i| %>
+                  <div class="col-md-3">
+                    <%= image_tag i.image.url, class: "img-food", crop: :fill %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
           <br>
           <% end %>
         </div>

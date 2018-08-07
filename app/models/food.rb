@@ -5,6 +5,8 @@ class Food < ApplicationRecord
   has_many :images, as: :imageable
   has_many :order_details, dependent: :destroy
 
+  enum status: [:enable, :disable]
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   scope :category, (lambda do |id|

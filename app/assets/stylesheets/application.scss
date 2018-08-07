@@ -64,7 +64,6 @@ input {
   transform: scale(1.1);
 }
 
-
 /* edit */
 
 #new_food, #edit_food, .sm_edit, .detail-food {
@@ -80,12 +79,16 @@ input {
   padding:30px;
 }
 
-#i_edit {
+#i_edit, #i_del {
   font-size:24px;
   color: $lightskyblue;
 }
 
 #i_edit:hover {
+  color: $lightseagreen;
+}
+
+#i_del:hover {
   color: $lightseagreen;
 }
 

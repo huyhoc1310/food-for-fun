@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :foods do
+    post "/delete_food", to: "foods#update_status"
     resources :images
   end
 

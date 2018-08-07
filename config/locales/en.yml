@@ -169,6 +169,8 @@ en:
       update_fail: "Update food fail!"
       not_found: "Food not found!"
       list_foods: "List all food"
+      disable_success: "Food delete success!"
+      disable_fail: "Food delete fail!"
     submit:
       create: "Create Food"
       update: "Update Food"
@@ -192,6 +194,8 @@ en:
       price: "Price is not blank!"
       image: "Image is not blank!"
       search: "Search is not blank!"
+    confirm:
+      confirm_del: "Are you sure?"
   restaurants:
     filter_form:
       city: "-- Select City --"
