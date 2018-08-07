@@ -1,5 +1,5 @@
 <div class="row col-md-12" id="detail-submit" >
-  <div class="row col-md-9">
+  <div class="row col-md-8">
     <div class="col-md-6">
       <p><strong>
         <%= t "order.label.sum_order"%>:&nbsp;
@@ -7,9 +7,14 @@
       </strong></p>
     </div>
   </div>
-  <div class="col-md-3 pull-right">
-    <%= link_to t("order.submit.accept_order"), manager_order_path(od_res.id),
-    method: :patch, class:"btn btn-success"%>
+  <div class="row col-md-4 pull-right">
+    <div class="col-md-6">
+      <%= link_to t("order.submit.accept_order"), manager_order_path(od_res.id),
+        method: :patch, class:"btn btn-success"%>
+    </div>
+    <div class="col-md-6">
+      <%= link_to t("order.submit.cancel_order"), manager_order_cancel_order_path(od_res.id), method: :patch, class:"btn btn-success"%>
+    </div>
   </div>
 </div>
 

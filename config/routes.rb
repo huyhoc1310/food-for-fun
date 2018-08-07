@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :restaurants, except: :destroy
-    resources :orders, only: [:index, :update]
+    resources :orders, only: [:index, :update] do
+      patch "/cancel_order", to: "orders#cancel_order"
+    end
   end
 
   namespace :user do

@@ -17,4 +17,15 @@ class Manager::OrdersController < ApplicationController
       redirect_to manager_orders_url
     end
   end
+
+  def cancel_order
+    @order = Order.find_by_id params[:order_id]
+    if @order.update_attributes status: :cancel
+      flash[:success] = t "order.message.cancel_success"
+      redirect_to manager_orders_url
+    else
+      flash[:danger] = t "order.message.cancel_failure"
+      redirect_to manager_orders_url
+    end
+  end
 end
