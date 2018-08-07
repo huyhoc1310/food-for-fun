@@ -1,0 +1,24 @@
+<h1>
+  <%= t "menu.menu_res" %>&nbsp;<%= @restaurant.name %>
+</h1>
+<div class="row col-md-12">
+  <% @foods.each do |food| %>
+    <div class="col-md-8" id="menu">
+      <div class="offer-item">
+        <%= image_tag find_img_food(food.id).first.image.url, class:"img-responsive" %>
+        <div>
+          <h3><%= food.name %></h3>
+          <p><%= find_category(food.category_id).name %></p>
+          <p class="txt-detail"><%= food.description %></p>
+        </div>
+        <span class="offer-price">$&nbsp;<%= food.price %></span>
+        <div class="pull-right">
+          <%= link_to t("food.submit.edit"), edit_manager_menu_path(food.id) %>
+          &nbsp;&nbsp;
+          <%= link_to t("food.submit.delete"), manager_menu_delete_food_path(food.id), method: :patch, data: {confirm: t("food.confirm.confirm_del")} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate @foods, theme: "twitter-bootstrap-3" %>
