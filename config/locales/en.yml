@@ -317,3 +317,10 @@ en:
       create: "Create"
   menu:
     menu_res: "Menu of"
+  notification:
+    ordered_content: "Has new order"
+    received_content: "Customer confirm received!"
+    accepted_content: "Order is shipping"
+    name_restaurant: "Restaurant"
+    add_restaurant: "Address"
+    food_name: "Food"

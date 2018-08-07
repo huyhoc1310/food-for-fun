@@ -43,7 +43,7 @@ class FoodsController < ApplicationController
   def update
     if @food.update_attributes food_params
       flash[:success] = t "food.message.update_success"
-      redirect_to @food
+      redirect_to manager_menu_path(@food.restaurant_id)
     else
       flash[:danger] = t "food.message.update_fail"
       render :edit

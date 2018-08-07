@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   include RestaurantsHelper
   include FoodsHelper
   include CategoriesHelper
+  include OrdersHelper
 
   private
 

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :menus, only: [:show, :edit] do
       patch "/delete_food", to: "menus#delete_food"
     end
+    resources :notifications, only: [:index]
   end
 
   namespace :user do
