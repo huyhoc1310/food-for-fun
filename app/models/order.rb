@@ -7,4 +7,5 @@ class Order < ApplicationRecord
 
   scope :find_order, ->(id){where user_id: id}
   scope :find_order_stt, ->(stt){where status: stt}
+  scope :all_ordered_manager, ->(stt){where.not status: stt}
 end

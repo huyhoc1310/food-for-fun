@@ -1,0 +1,21 @@
+<div class="row col-md-12" id="detail-submit" >
+  <div class="row col-md-8">
+    <div class="col-md-6">
+      <p><strong>
+        <%= t "order.label.sum_order"%>:&nbsp;
+        <%= od_res.total_pice %>&nbsp;$
+      </strong></p>
+    </div>
+  </div>
+  <div class="row col-md-4 pull-right">
+    <% if od_res.accepted? %>
+      <p id="status"><i><%= t "order.status.confirmed" %></i></p>
+    <% elsif od_res.received? %>
+      <p id="status"><i><%= t "order.status.sended" %></i></p>
+    <% elsif od_res.cancel? %>
+      <p id="status"><i><%= t "order.status.cancel" %></i></p>
+    <% else %>
+      <p id="status"><i><%= t "order.status.not_confirmed" %></i></p>
+    <% end %>
+  </div>
+</div>

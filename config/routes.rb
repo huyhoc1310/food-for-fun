@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :update] do
       patch "/cancel_order", to: "orders#cancel_order"
     end
+    get "/all_orders", to: "orders#all_orders"
   end
 
   namespace :user do

@@ -254,6 +254,7 @@ en:
       accept_order: "Accept order"
       status_accepter: "Your order is completed."
       cancel_order: "Cancel order"
+      orders_need_confirm: "All orders need confirmation"
       all_orders: "All your orders"
     label:
       customer: "Customer"
@@ -272,6 +273,10 @@ en:
       ordered: "Your order is watting restaurant's confirmation."
       accepted: "Your order is shipping!"
       received: "Your order is sended!"
+      cancel: "This order is canceled!"
+      sended: "This order is done!"
+      not_confirmed: "This order is not confirmed!"
+      confirmed: "This order is confirmed!"
   restaurant:
     about_us: "About us"
   comments:

@@ -5,6 +5,10 @@ class Manager::OrdersController < ApplicationController
     @orders = Order.find_order_stt(:ordered).page(params[:page]).per Settings.rows
   end
 
+  def all_orders
+    @orders = Order.all_ordered_manager(:unordered).page(params[:page]).per Settings.rows
+  end
+
   def update
     @order = Order.find_by_id params[:id]
     @sum_total = OrderDetail.find_or_detail(params[:id]).sum(:total_price)
