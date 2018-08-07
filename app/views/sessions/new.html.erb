@@ -1,0 +1,23 @@
+<% provide :title, t("layouts.header.signin") %>
+<h3 class="text-center"><%= t("layouts.header.signin") %></h3>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: signin_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= link_to t(".forgot_password"), new_password_reset_path, id: "forgot" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me, class: "remember_me" %>
+        <span><%= t ".remember_me" %></span>
+      <% end %>
+
+      <%= f.submit t("layouts.header.signin"), class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

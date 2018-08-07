@@ -3,15 +3,20 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.5.1"
 
+gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.0.0"
 gem "coffee-rails", "~> 4.2"
+gem "config"
+gem "faker", "1.7.3"
+gem "figaro"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "mysql2"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
+gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "turbolinks"
