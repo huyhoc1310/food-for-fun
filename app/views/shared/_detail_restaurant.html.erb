@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <p><strong>
+    <%= t "order.label.restaurant" %>:&nbsp;<%= find_restaurant(od_res.restaurant_id).name %>
+  </strong></p>
+  <p>
+    <%= t "order.label.restaurant_add" %>:&nbsp;<%= find_restaurant(od_res.restaurant_id).address %>
+  </p>
+  <p>
+    <%= t "order.label.restaurant_phone" %>:&nbsp;<%= find_restaurant(od_res.restaurant_id).phone_number %>
+  </p>
+</div>

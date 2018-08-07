@@ -1,4 +1,7 @@
 class User::OrdersController < ApplicationController
+  before_action :logged_in_user
+  before_action :is_user?
+
   def index
     @orders = Order.find_order(current_user.id).page(params[:page]).per Settings.rows
   end

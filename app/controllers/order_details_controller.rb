@@ -1,4 +1,6 @@
 class OrderDetailsController < ApplicationController
+  before_action :logged_in_user
+
   def index
     @order_details = OrderDetail.list_order_details current_user.id
   end

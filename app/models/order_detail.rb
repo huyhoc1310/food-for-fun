@@ -12,7 +12,8 @@ class OrderDetail < ApplicationRecord
   end)
 
   scope :find_order_detail, (lambda do |f_id, u_id|
-    joins(:order).select("order_details.id as id, order_details.quantity as quantity, order_details.order_id as order_id, order_details.price as price").where("order_details.food_id = #{f_id} and orders.user_id = #{u_id} and orders.status = 'unordered'")
+    joins(:order).select(:id, :quantity, :order_id, :price)
+    .where food_id: f_id, order: {status: 0}
   end)
 
   scope :find_or_detail, ->(id){where order_id: id}

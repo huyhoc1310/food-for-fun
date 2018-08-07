@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     store_location
     flash[:danger] = t "flashs.please_login"
-    redirect_to login_url
+    redirect_to signin_url
   end
 end

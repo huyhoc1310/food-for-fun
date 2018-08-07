@@ -12,9 +12,7 @@
       </div>
       <div class="col-md-3">
 
-      <%= link_to t("order_detail.submit.delete"), find_order_detail(c.od_id), method: :delete,
-        data: { confirm: t("order_detail.submit.confirm_delete")}, remote: true,
-        class: 'btn btn-danger' %>
+      <%= link_to t("order_detail.submit.delete"), find_order_detail_id(c.od_id), method: :delete, data: { confirm: t("order_detail.submit.confirm_delete")}, remote: true, class: "btn btn-danger" %>
       </div>
     </div>
   <% end %>

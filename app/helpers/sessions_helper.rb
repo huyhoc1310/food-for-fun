@@ -57,4 +57,8 @@ module SessionsHelper
   def is_manager?
     current_user&.manager?
   end
+
+  def is_user?
+    current_user&.user?
+  end
 end

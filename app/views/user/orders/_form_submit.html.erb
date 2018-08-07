@@ -1,0 +1,28 @@
+<div class="row col-md-12" id="detail-submit">
+  <div class="row col-md-9">
+    <div class="col-md-6">
+      <% if od_res.unordered? %>
+        <p><strong>
+          <%= t "order.label.sum_order"%>:&nbsp;
+          <%= sum_total_temp(od_res.id) %>&nbsp;$
+        </strong></p>
+      <% else %>
+        <p><strong>
+          <%= t "order.label.sum_order"%>:&nbsp;
+          <%= od_res.total_pice %>&nbsp;$
+        </strong></p>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <% if od_res.accepted? %>
+        <p id="status"><i><%= t "order.status.accepted" %></i></p>
+      <% elsif od_res.ordered? %>
+        <p id="status"><i><%= t "order.status.ordered" %></i></p>
+      <% elsif od_res.unordered? %>
+        <p id="status"><i><%= t "order.status.unordered" %></i></p>
+      <% else %>
+        <p id="status"><i><%= t "order.status.received" %></i></p>
+      <% end %>
+    </div>
+  </div>
+</div>
