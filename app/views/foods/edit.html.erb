@@ -1,0 +1,19 @@
+<%= form_for @food do |f| %>
+  <div class="col-md-8" id="edit_food">
+    <h1><strong><%= t "food.title.edit" %></strong></h1>
+    <%= f.label :name, t("food.label.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+    <p class="error"><%= show_errors(@food, :name) %></p>
+
+    <%= f.label :description, t("food.label.description") %>
+    <%= f.text_area :description, class: "form-control" %>
+    <p class="error"><%= show_errors(@food, :description) %></p>
+
+    <%= f.label :price, t("food.label.price") %>
+    <%= f.number_field :price, class: "form-control" %>
+    <p class="error"><%= show_errors(@food, :description) %></p>
+  </div>
+  <div class="col-md-6 sm_edit">
+    <%= f.submit t("food.submit.update"), class: "btn btn-primary" %>
+  </div>
+<% end %>

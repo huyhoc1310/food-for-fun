@@ -141,3 +141,27 @@ en:
       edit:
         title: "Edit restaurant"
         save: "Save"
+  food:
+    message:
+      create_fail: "Create food fail!"
+      create_success: "Create food success!"
+      update_success: "Update food success!"
+      update_fail: "Update food fail!"
+      not_found: "Food not found!"
+    submit:
+      create: "Create Food"
+      update: "Update Food"
+      edit: "Edit Food"
+    title:
+      edit: "Edit food"
+      create: "Create a new food"
+    label:
+      name: "Name of food"
+      description: "Description for food"
+      price: "Price "
+      choose: "Choose image for food"
+    error:
+      name: "Name is not blank!"
+      description: "Description is not blank!"
+      price: "Price is not blank!"
+      image: "Image is not blank!"

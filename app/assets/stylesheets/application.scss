@@ -3,3 +3,79 @@
 @import "aquamarine.scss";
 @import "custom";
 @import "font-awesome";
+@import "color.scss";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* form */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid $silver;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+
+input {
+  height: auto !important;
+}
+
+/*error*/
+
+.error {
+  color: $red;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+/* edit */
+
+#new_food, #edit_food, .sm_edit, .detail-food {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sm_edit {
+  padding-top: 30px;
+}
+
+.detail-food {
+  padding:30px;
+}
+
+.img-food {
+  width: 100%;
+  height: auto;
+}
+
+.img-food:hover {
+  background-color: $azure;
+  color: $white;
+  transform: scale(1.1);
+}
+
+#i_edit {
+  font-size:24px;
+  color: $lightskyblue;
+}
+
+#i_edit:hover {
+  color: $lightseagreen;
+}
+
+label.required:after{
+  content:" *";
+  color: $red;
+}

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 form-group" id="new_food">
+    <h1><strong><%= t "food.title.create" %></strong></h1>
+    <%= form_for @food do |f| %>
+      <%= f.label :name, t("food.label.name") %>
+      <%= f.text_field :name, class: "form-control" %>
+      <p class="error"><%= show_errors(@food, :name) %></p>
+
+      <%= f.label :description, t("food.label.description") %>
+      <%= f.text_area :description, class: "form-control" %>
+      <p class="error"><%= show_errors(@food, :description) %></p>
+
+      <%= f.label :price, t("food.label.price") %>
+      <%= f.number_field :price, class: "form-control" %>
+      <p class="error"><%= show_errors(@food, :price) %></p>
+
+      <%= f.label :price, t("food.label.choose") %>
+      <%= f.fields_for :images do |img| %>
+        <%= img.file_field :image, accept: Settings.accept_img %>
+      <% end %>
+
+      <%= f.submit t("food.submit.create"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
