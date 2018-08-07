@@ -1,18 +1,28 @@
 <%= form_for @food do |f| %>
   <div class="col-md-8" id="edit_food">
     <h1><strong><%= t "food.title.edit" %></strong></h1>
-    <%= f.label :name, t("food.label.name") %>
-    <%= f.text_field :name, class: "form-control" %>
-    <p class="error"><%= show_errors(@food, :name) %></p>
+    <%= f.label :name, t("food.label.name"), class: "required" %>
+    <%= f.text_field :name,required: true, class: "form-control" %>
 
-    <%= f.label :description, t("food.label.description") %>
-    <%= f.text_area :description, class: "form-control" %>
-    <p class="error"><%= show_errors(@food, :description) %></p>
+    <%= f.label :category, t("food.label.category"), class: "required" %>
+    <%= f.collection_select :category_id, @categories,
+        :id, :name, {prompt: "Select category"}, class: "form-control" %>
 
-    <%= f.label :price, t("food.label.price") %>
-    <%= f.number_field :price, class: "form-control" %>
-    <p class="error"><%= show_errors(@food, :description) %></p>
+    <%= f.label :description, t("food.label.description"), class: "required" %>
+    <%= f.text_area :description, required: true, class: "form-control" %>
+
+    <%= f.label :price, t("food.label.price"), class: "required" %>
+    <%= f.number_field :price, required: true, class: "form-control" %>
   </div>
+
+  <div class="col-md-12 row">
+    <% @food.images.each do |p| %>
+      <div class="col-md-4">
+        <%= image_tag p.image.url, class: "img-food", crop: :fill %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="col-md-6 sm_edit">
     <%= f.submit t("food.submit.update"), class: "btn btn-primary" %>
   </div>

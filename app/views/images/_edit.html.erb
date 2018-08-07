@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">
+    <%= t "food.lable.image" %>
+  </h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  <span class="picture">
+    <%= form_for @image, remote: true, url: { action: "update" } do |img| %>
+      <%= img.file_field :image, accept: Settings.accept_img, required: true %>
+      <%= img.submit t("food.submit.save_img"), class: "btn btn-primary" %>
+    <% end %>
+  </span>
+</div>

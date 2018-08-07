@@ -2,22 +2,27 @@
   <div class="col-md-6 form-group" id="new_food">
     <h1><strong><%= t "food.title.create" %></strong></h1>
     <%= form_for @food do |f| %>
-      <%= f.label :name, t("food.label.name") %>
-      <%= f.text_field :name, class: "form-control" %>
-      <p class="error"><%= show_errors(@food, :name) %></p>
 
-      <%= f.label :description, t("food.label.description") %>
-      <%= f.text_area :description, class: "form-control" %>
-      <p class="error"><%= show_errors(@food, :description) %></p>
+      <%= f.label :name, t("food.label.name"), class: "required" %>
+      <%= f.text_field :name, required: true, class: "form-control" %>
 
-      <%= f.label :price, t("food.label.price") %>
-      <%= f.number_field :price, class: "form-control" %>
-      <p class="error"><%= show_errors(@food, :price) %></p>
+      <%= f.label :category, t("food.label.category"), class: "required" %>
+      <%= f.collection_select :category_id, @categories,
+          :id, :name, {prompt: "Select category"}, required: true,
+          class: "form-control" %>
 
-      <%= f.label :price, t("food.label.choose") %>
-      <%= f.fields_for :images do |img| %>
-        <%= img.file_field :image, accept: Settings.accept_img %>
-      <% end %>
+      <%= f.label :description, t("food.label.description"), class: "required" %>
+      <%= f.text_area :description, required: true, class: "form-control" %>
+
+      <%= f.label :price, t("food.label.price"), class: "required" %>
+      <%= f.number_field :price, required: true, class: "form-control" %>
+
+      <span class="picture">
+        <%= f.fields_for :images do |img| %>
+          <%= f.label :image, t("food.label.image"), class: "required" %>
+          <%= img.file_field :image, accept: Settings.accept_img, required: true %>
+        <% end %>
+      </span>
 
       <%= f.submit t("food.submit.create"), class: "btn btn-primary" %>
     <% end %>

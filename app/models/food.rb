@@ -7,6 +7,11 @@ class Food < ApplicationRecord
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  scope :category, (lambda do |id|
+    joins(:category).select("categories.name as name_category")
+      .where("foods.id = #{id}")
+  end)
+
   validates_presence_of :name, message: I18n.t("food.error.name")
   validates_presence_of :description, message: I18n.t("food.error.description")
   validates_presence_of :price, message: I18n.t("food.error.price")
