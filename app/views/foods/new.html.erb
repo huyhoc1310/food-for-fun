@@ -24,12 +24,10 @@
       <%= f.label :price, t("food.label.price"), class: "required" %>
       <%= f.number_field :price, required: true, class: "form-control" %>
 
-      <span class="picture">
-        <%= f.fields_for :images do |img| %>
-          <%= f.label :image, t("food.label.image"), class: "required" %>
-          <%= img.file_field :image, accept: Settings.accept_img, required: true %>
-        <% end %>
-      </span>
+      <%= f.fields_for :images do |img| %>
+        <%= f.label :image, t("food.label.image"), class: "required" %>
+        <%= img.file_field :image, accept: Settings.accept_img, required: true %>
+      <% end %>
 
       <%= f.submit t("food.submit.create"), class: "btn btn-primary" %>
     <% end %>

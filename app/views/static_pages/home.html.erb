@@ -1,6 +1,8 @@
 <%= provide :title, t(".title") %>
 <div class="row">
-  <%= render "foods/filter_form" %>
+  <% if logged_in? && !is_admin? && !is_manager? %>
+    <%= render "foods/filter_form" %>
+  <% end %>
 </div>
 <% if logged_in? %>
   <% if is_manager? %>

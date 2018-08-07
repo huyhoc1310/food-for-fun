@@ -6,7 +6,7 @@
     <div class="col-md-8" id="menu">
       <div class="offer-item">
         <%= image_tag find_img_food(food.id).first.image.url, class:"img-responsive" %>
-        <div>
+        <div class="col-md-10">
           <h3><%= food.name %></h3>
           <p><%= find_category(food.category_id).name %></p>
           <p class="txt-detail"><%= food.description %></p>

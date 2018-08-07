@@ -1,19 +1,13 @@
-<div class="container-fluid">
-  <div class="row foods">
-    <%= render "search/food" %>
-  </div>
-</div>
-<h1><%= t "food.message.list_foods" %></h1>
+<h1 class="text-center"><%= t "food.message.list_foods" %></h1>
 <div class="card-deck">
   <% @foods.each do |f| %>
     <div class="col-md-4" id="food-index">
       <div class="card">
         <%= image_tag find_img_food(f.id).first.image.url, class:"card-img-top"%>
         <div class="card-body">
-          <h5 class="card-title"><%= f.name %></h5>
+          <h5 class="card-title"><%= link_to f.name, f %></h5>
           <%= link_to find_restaurant(f.restaurant_id).name, restaurant_restaurant_foods_path(f.restaurant_id) %>
           <p class="card-text"><i class="fa fa-usd" aria-hidden="true"></i>&nbsp;<%= f.price %></p>
-          <%= link_to t("food.submit.order"), restaurant_restaurant_foods_path(f.restaurant_id) %>
         </div>
       </div>
     </div>

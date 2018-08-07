@@ -16,6 +16,9 @@
         <% end %>
       </h1>
     <% end %>
+    <% if current_user.user? %>
+      <h3><strong><%= @food.name %>&nbsp;</strong></h3>
+    <% end %>
     <p><%= t "food.label.category" %>:&nbsp;<%= @category.first.name_category %></p>
     <p><%= t "food.label.description" %>:&nbsp;<%= @food.description %></p>
     <p><%= t "food.label.price" %>:&nbsp;<%= @food.price %>$</p>
@@ -24,7 +27,7 @@
     <%= Settings.rating_stars %>
     <%= t(".with") + @food.rates("score").count.to_s + t(".votes") %>
     <br>
-    <% if current_user %>
+    <% if current_user.user? %>
       <%= t ".rate_food" %>
       <%= rating_for @food, "score" %>
       <br>
@@ -39,16 +42,15 @@
       <% @images.each do |p| %>
         <div class="col-md-3">
           <%= image_tag p.image.url, class: "img-food", crop: :fill %>
-          <%= link_to t("food.submit.edit_image"), edit_food_image_path(@food, p),
-            {remote: true, data: {toggle: "modal",
-            target: "#modal-window"}, class: "fa fa-edit"} %>
-
-          <div id="modal-window" class="modal hide fade" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content"></div>
+          <% if current_user.manager? %>
+            <%= link_to t("food.submit.edit_image"), edit_food_image_path(@food, p), {remote: true, data: {toggle: "modal", target: "#modal-window"}, class: "fa fa-edit"} %>
+            <div id="modal-window" class="modal hide fade" role="dialog"
+              aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content"></div>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     <% end %>

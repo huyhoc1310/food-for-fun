@@ -2,7 +2,7 @@
   <i class="fa fa-comments"></i>
 <% end %>
 <% if current_user.current_user? @restaurant.user %>
-  <%= link_to new_restaurant_category_path(@restaurant), remote: true,
+  <%= link_to new_restaurant_category_path(@restaurant),
     class: "btn btn-primary rounded-circle sticky-top pull-right" do %>
     <i class="fa fa-plus" data-toggle="tooltip" title="Category"></i>
   <% end %>

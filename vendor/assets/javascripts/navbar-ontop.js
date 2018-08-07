@@ -1,7 +1,7 @@
 (function () {
     var className = "navbar-ontop"
     document.write("<style id='temp-navbar-ontop'>.navbar {opacity:0; transition: none !important}</style>")
-  
+
     function update() {
       var nav = document.querySelector(".navbar")
       if (window.scrollY > 15)
@@ -9,7 +9,7 @@
       else
         nav.classList.add(className)
     }
-  
+
     document.addEventListener("DOMContentLoaded", function (event) {
       $(window).on('show.bs.collapse', function (e) {
         $(e.target).closest("." + className).removeClass(className);
@@ -22,7 +22,7 @@
         document.querySelector("#temp-navbar-ontop").remove()
       })
     });
-  
+
     window.addEventListener("scroll", function () {
       update()
     })

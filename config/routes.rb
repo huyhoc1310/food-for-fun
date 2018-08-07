@@ -30,9 +30,6 @@ Rails.application.routes.draw do
       patch "/cancel_order", to: "orders#cancel_order"
     end
     get "/all_orders", to: "orders#all_orders"
-    resources :menus, only: [:show, :edit] do
-      patch "/delete_food", to: "menus#delete_food"
-    end
     resources :notifications, only: [:index]
   end
 

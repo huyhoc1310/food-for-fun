@@ -1,8 +1,18 @@
 <% provide :title, t(".title") %>
 <h2 class="text-center"><%= t ".title" %></h2>
 <div class="row justify-content-center">
-  <div class="col-md-6 cl-md-offset-3 text-center">
+  <div class="col-md-12 text-center">
     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t "users.show.name" %></th>
+          <th><%= t "users.show.email" %></th>
+          <th><%= t "users.show.phone" %></th>
+          <th><%= t "users.show.function" %></th>
+          <th><%= t "users.show.function" %></th>
+          <th><%= t "users.show.delete" %></th>
+        </tr>
+      </thead>
       <%= render @users %>
     </table>
     <%= paginate @users, theme: "twitter-bootstrap-3" %>

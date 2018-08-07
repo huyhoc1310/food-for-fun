@@ -1,9 +1,9 @@
-<h2>
+<h2 class="text-center">
   <%= t "order.submit.orders_need_confirm" %>
   <%= link_to t("order.submit.all_orders"), manager_all_orders_path, class:"btn btn-primary pull-right" %>
 </h2>
 <% if @orders.blank? %>
-  <h1><%= t "order.message.no_order" %></h1>
+  <h3><i><%= t "order.message.no_order" %></i></h3>
 <% else %>
   <% @orders.each do |od_res| %>
     <% if find_order_detail_o_id(od_res).count > 1 %>

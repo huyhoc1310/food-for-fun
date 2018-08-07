@@ -7,13 +7,15 @@
       <td>
         <%= form_for [:admin, user] do |f| %>
           <%= hidden_field_tag :role, :manager %>
-          <%= f.submit t(".set_manager"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+          <%= f.submit t(".set_manager"), class: "btn btn btn-basic",
+            data: {confirm: t(".confirm")} %>
         <% end %>
       </td>
       <td>
         <%= form_for [:admin, user] do |f| %>
           <%= hidden_field_tag :role, :admin %>
-          <%= f.submit t(".set_admin"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+          <%= f.submit t(".set_admin"), class: "btn btn-basic",
+            data: {confirm: t(".confirm")} %>
         <% end %>
       </td>
     <% elsif user.manager? %>
@@ -23,7 +25,9 @@
         <%= f.submit t(".unset_manager"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
       <% end %>
       </td>
+      <td>Admin</td>
     <% elsif user.admin? && !current_user?(user) %>
+      <td>Manager</td>
       <td>
       <%= form_for [:admin, user] do |f| %>
         <%= hidden_field_tag :role, :user %>
@@ -33,7 +37,7 @@
     <% end %>
     <td>
       <% unless current_user?(user) %>
-        <%= link_to t(".delete"), user, method: :delete,
+        <%= link_to t(".delete"), user, method: :delete, id: "del-user",
                     data: {confirm: t(".confirm")} %>
       <% end %>
     </td>

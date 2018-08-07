@@ -1,5 +1,17 @@
-<div class="container-fluid">
-  <div class="row restaurants">
-    <%= render "search/restaurant" %>
+<% if @restaurants.any? %>
+  <div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= t "users.show.restaurant" %></th>
+            <th><%= t "users.show.description" %></th>
+            <th><%= t "users.show.address" %></th>
+            <th><%= t "users.show.phone" %></th>
+          </tr>
+        </thead>
+        <%= render "search/restaurant" %>
+      </table>
+    </div>
   </div>
-</div>
+<% end %>

@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :logged_in_user, except: [:index, :show]
+  before_action :is_manager?, except: [:index, :show]
   before_action :find_food, only: [:show, :update, :edit]
   before_action :get_categories, only: [:new, :edit]
   before_action :get_images, only: [:edit, :show]
@@ -43,7 +45,7 @@ class FoodsController < ApplicationController
   def update
     if @food.update_attributes food_params
       flash[:success] = t "food.message.update_success"
-      redirect_to manager_menu_path(@food.restaurant_id)
+      redirect_to @food
     else
       flash[:danger] = t "food.message.update_fail"
       render :edit
