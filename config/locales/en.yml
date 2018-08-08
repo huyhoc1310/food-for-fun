@@ -78,3 +78,25 @@ en:
     account: "Account"
     profile: "Profile"
     logout: "Log out"
+  admin:
+    restaurants:
+      create_success: "Create new restaurant successfully"
+      create_error: "Create new restaurant failed"
+      update_success: "Update new restaurant successfully"
+      update_error: "Update new restaurant failed"
+      is_not_manager: "User selected is not a manager"
+      not_found: "Restaurant not found"
+      new:
+        title: "Create new restaurant"
+      form:
+        create: "Create restaurant"
+        submit: "Submit"
+      index:
+        title: "Restaurants Manage"
+        create: "Create new restaurant"
+      restaurant:
+        edit: "Edit"
+        delete: "Delete"
+      edit:
+        title: "Edit restaurant"
+        save: "Save"

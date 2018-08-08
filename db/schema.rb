@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_055945) do
+ActiveRecord::Schema.define(version: 2018_08_08_102259) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2018_08_07_055945) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,8 +88,10 @@ ActiveRecord::Schema.define(version: 2018_08_07_055945) do
     t.text "description"
     t.string "address"
     t.string "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "suggests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,6 +99,8 @@ ActiveRecord::Schema.define(version: 2018_08_07_055945) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_suggests_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,7 +108,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_055945) do
     t.string "address"
     t.string "name"
     t.string "phone_number"
-    t.integer "role", default: 0, null: false
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
@@ -113,10 +120,13 @@ ActiveRecord::Schema.define(version: 2018_08_07_055945) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "notifications", "restaurants"
   add_foreign_key "oder_details", "foods"
   add_foreign_key "oder_details", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "relationships", "restaurants"
   add_foreign_key "relationships", "users"
+  add_foreign_key "restaurants", "users"
+  add_foreign_key "suggests", "users"
 end
