@@ -1,0 +1,16 @@
+<%= form_for [:restaurant, @suggest], remote: true do |f| %>
+  <div class="modal-body">
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit t(".cancel"), class: "btn btn-outline-danger col-md-3",
+      data: {dismiss: "modal"} %>
+    <%= f.submit t(".create"), class: "btn btn-success col-md-3" %>
+  </div>
+<% end %>

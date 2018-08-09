@@ -58,3 +58,12 @@ input {
   float: right;
 }
 
+.suggests {
+  float: right;
+  .suggest {
+    margin: 15px;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+}

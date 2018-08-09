@@ -1,0 +1,9 @@
+<%= link_to new_restaurant_suggest_path(@restaurant), remote: true, class: "btn btn-success" do %>
+  <i class="fa fa-comments"></i>
+<% end %>
+
+<div id="product-modal" class="modal fade"></div>
+
+<div class="suggests">
+  <%= render @suggests %>
+</div>

@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :restaurants, except: [:show]
   end
+  resources :restaurants do
+    resources :suggests
+  end
 end

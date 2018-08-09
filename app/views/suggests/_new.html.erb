@@ -1,0 +1,11 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title"><%= t ".title" %></h4>
+      <%= link_to "#", class: "close btn", data: {dismiss: "modal"} do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    </div>
+    <%= render "form" %>
+  </div>
+</div>
