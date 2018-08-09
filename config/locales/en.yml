@@ -50,6 +50,10 @@ en:
     not_found_user: "Not found User!"
     account_not_active: "Account not activated. "
     check_email_active_link: "Check your email for the activation link."
+    create_suggest_success: "Create new suggest success!"
+    not_found_restaurant: "Not found restaurant!"
+    suggest_deleted: "Suggest deleted!"
+    fail_delete_suggest: "Delete suggest failed!"
   sessions:
     new:
       remember_me: "Remember me"
@@ -100,3 +104,14 @@ en:
       edit:
         title: "Edit restaurant"
         save: "Save"
+  suggests:
+    new:
+      title: "New suggest"
+    form:
+      create: "Creat"
+      cancel: "Cancel"
+    suggest:
+      you_sure: "You sure?"
+  time:
+    formats:
+      default: "%a, %d %b %Y %l:%M %p"

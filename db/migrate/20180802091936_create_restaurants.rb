@@ -9,6 +9,5 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :restaurants, [:user_id]
   end
 end
