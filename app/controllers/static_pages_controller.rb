@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @categories = Category.all.map{|category| [category.name, category.id]}
+  end
 
   def help; end
 

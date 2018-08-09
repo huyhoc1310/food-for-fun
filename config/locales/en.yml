@@ -168,3 +168,12 @@ en:
       description: "Description is not blank!"
       price: "Price is not blank!"
       image: "Image is not blank!"
+      search: "Search is not blank!"
+  restaurants:
+    filter_form:
+      city: "-- Select City --"
+      hanoi: "Ha Noi"
+      hcm: "Ho Chi Minh"
+  foods:
+    filter_form:
+      select_one: "Select one!"

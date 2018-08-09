@@ -21,3 +21,6 @@ rows: 15
 accept_img: "image/jpeg,image/gif,image/png"
 size_img: 400
 image_times: 4
+image:
+  height: 100%
+  width: 100%

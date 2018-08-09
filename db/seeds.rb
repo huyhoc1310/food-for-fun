@@ -33,7 +33,7 @@ User.create!(name: "user2",
                activated_at: Time.zone.now)
 end
 
-Restaurant.create!(name: "ahihi",
+Restaurant.create!(name: "ahihi 1",
              description: "this is the great restaurant.",
              address: "146 xuan thuy, cau giay, ha noi",
              phone_number: "02548352",

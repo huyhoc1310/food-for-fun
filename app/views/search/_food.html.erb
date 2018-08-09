@@ -1,0 +1,17 @@
+<% @foods.each do |food| %>
+  <div class="col-md-4 food-item">
+    <div class="food-item-body">
+      <h5><%= link_to food.name, food %></h5>
+      <ul>
+        <li><%= food.description %></li>
+        <li><%= food.price %>$</li>
+      </ul>
+    </div>
+    <div class="row">
+      <% if food.images.any? %>
+        <%= image_tag food.images.first.image.url,
+          height: Settings.image.height, width: Settings.image.width %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

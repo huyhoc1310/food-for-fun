@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :update, :edit]
   before_action :get_categories, only: [:new, :edit]
   before_action :get_images, only: [:edit, :show]
+  before_action :load_foods, only: :index
 
   def index; end
 
@@ -60,5 +61,10 @@ class FoodsController < ApplicationController
 
   def get_images
     @images = @food.images
+  end
+
+  def load_foods
+    @foods = Food.all
+    @foods = Food.by_category params[:category] if params[:category]
   end
 end

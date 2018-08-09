@@ -19,13 +19,9 @@
         <li class="nav-item mx-2">
           <%= link_to t(".orders"), root_path, class: "nav-link text-dark" %>
         </li>
+        <li><%= render "search/form" %></li>
+        <li><%= render "restaurants/filter_form" %></li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn my-2 my-sm-0 btn-primary" type="submit">
-          <%= t ".search" %>
-        </button>
-      </form>
     </div>
   </div>
   <div class="float-right">
