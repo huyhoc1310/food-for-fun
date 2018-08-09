@@ -51,6 +51,7 @@ node_modules/
 /config/application.yml
 
 /test
+
 .idea/
 
 config/settings

@@ -5,8 +5,10 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :address
       t.string :phone_number
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
+    add_index :restaurants, [:user_id]
   end
 end
