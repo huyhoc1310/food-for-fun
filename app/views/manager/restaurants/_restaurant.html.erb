@@ -1,0 +1,9 @@
+<tr>
+  <td><a><%= restaurant.name %></a></td>
+  <td><%= restaurant.address %></td>
+  <td><%= restaurant.phone_number %></td>
+  <td class="action-btn">
+    <%= link_to t(".edit"), edit_manager_restaurant_path(restaurant),
+      class: "submit-btn" %>
+  </td>
+</tr>
