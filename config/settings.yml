@@ -1,0 +1,17 @@
+model:
+  users:
+    name:
+      maximum: 50
+    email:
+      maximum: 255
+    address:
+      maximum: 400
+    phone:
+      maximum: 11
+    password:
+      minimum: 6
+session:
+  remember_me: 1
+timeout:
+  reset_sent: 2
+rows: 15

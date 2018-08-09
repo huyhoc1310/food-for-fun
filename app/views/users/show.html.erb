@@ -1,0 +1,25 @@
+<% provide :title, @user.name %>
+<h3 class="text-center"><%= t ".info" %></h3>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+      <tr>
+        <th><%= t ".name" %></th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th><%= t ".email" %></th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th><%= t ".address" %></th>
+        <td><%= @user.address %></td>
+      </tr>
+      <tr>
+        <th><%= t ".phone" %></th>
+        <td><%= @user.phone_number %></td>
+      </tr>
+    </table>
+  </div>
+</div>

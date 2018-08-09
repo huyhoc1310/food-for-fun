@@ -23,8 +23,24 @@
     </div>
   </div>
   <div class="float-right">
-    <%= link_to t(".signup"), root_path,
+    <%= link_to t(".signup"), signup_path,
                 class: "btn navbar-btn btn-secondary mx-2 shadowed" %>
-    <%= link_to t(".signin"), root_path, class: "btn btn-default navbar-btn" %>
+    <% if logged_in? %>
+      <div class="btn-group">
+        <%= link_to "#", class: "btn btn-outline-success dropdown-toggle",
+          :"data-toggle" => "dropdown" do %>
+          <%= t "accounts.account" %><b class="caret"></b>
+        <% end %>
+        <div class="dropdown-menu">
+          <%= link_to t("accounts.profile"), current_user, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to t("accounts.logout"), logout_path, class: "dropdown-item",
+            method: :delete %>
+        </div>
+      </div>
+    <% else %>
+      <%= link_to t("layouts.header.signin"), signin_path,
+        class: "btn btn-success navbar-btn" %>
+    <% end %>
   </div>
 </nav>
