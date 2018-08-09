@@ -1,4 +1,4 @@
-<%= form_for [:admin, @restaurant] do |f| %>
+<%= form_for [:manager, @restaurant] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
 
@@ -10,10 +10,6 @@
 
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number, class: "form-control" %>
-
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id, class: "form-control" %>
-
   <br>
   <%= f.submit t(".submit"), class: "btn btn-primary" %>
 <% end %>

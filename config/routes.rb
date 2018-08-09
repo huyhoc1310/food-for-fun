@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   namespace :admin do
-    resources :restaurants, except: [:show]
+    resources :restaurants, only: :index
+  end
+  namespace :manager do
+    resources :restaurants, except: :destroy
   end
   resources :restaurants do
     resources :suggests

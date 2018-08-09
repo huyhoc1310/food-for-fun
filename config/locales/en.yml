@@ -4,7 +4,7 @@ en:
     header:
       brand: "Food for fun"
       home: "Home"
-      restaurant: "Restaurant"
+      restaurants: "Restaurants"
       orders: "Orders"
       search: "Search"
       logout: "Logout"
@@ -115,3 +115,29 @@ en:
   time:
     formats:
       default: "%a, %d %b %Y %l:%M %p"
+  manager:
+    create_success: "Create new restaurant successfully"
+    create_error: "Create new restaurant failed"
+    update_success: "Update new restaurant successfully"
+    update_error: "Update new restaurant failed"
+    restaurants:
+      create_success: "Create new restaurant successfully"
+      create_error: "Create new restaurant failed"
+      update_success: "Update new restaurant successfully"
+      update_error: "Update new restaurant failed"
+      is_not_manager: "User selected is not a manager"
+      not_found: "Restaurant not found"
+      new:
+        title: "Create new restaurant"
+      form:
+        create: "Create restaurant"
+        submit: "Submit"
+      index:
+        title: "Manage restaurants"
+        create: "Create new restaurant"
+      restaurant:
+        edit: "Edit"
+        delete: "Delete"
+      edit:
+        title: "Edit restaurant"
+        save: "Save"

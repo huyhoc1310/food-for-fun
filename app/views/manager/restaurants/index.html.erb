@@ -1,0 +1,11 @@
+<% provide :title, t(".title") %>
+<h2 class="text-center"><%= t ".title" %></h2>
+<div class="row justify-content-center">
+  <div class="col-md-6 cl-md-offset-3 text-center">
+    <table class="table table-striped">
+      <%= render @restaurants %>
+    </table>
+    <%= link_to t(".create"), new_manager_restaurant_path,
+                class: "btn btn-primary" %>
+  </div>
+</div>
