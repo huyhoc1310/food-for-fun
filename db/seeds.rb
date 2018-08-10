@@ -37,3 +37,7 @@ Restaurant.create!(name: "ahihi",
              address: "146 xuan thuy, cau giay, ha noi",
              phone_number: "02548352",
              user_id: 2)
+5.times do |n|
+  name = "category-#{n+1}"
+  Category.create!(name:  name)
+end
