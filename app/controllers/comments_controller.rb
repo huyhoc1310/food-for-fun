@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user, only: %i(create edit destroy)
-  before_action :load_food, except: :new
+  before_action :logged_in_user, only: %i(create edit destroy reply)
+  before_action :load_food, expect: :new
   before_action :correct_user, only: %i(edit update destroy)
 
   def new
@@ -39,10 +39,15 @@ class CommentsController < ApplicationController
     redirect_to request.referrer || @food
   end
 
+  def reply
+    @reply = Comment.new
+    @image = @reply.images.build
+  end
+
   private
 
   def comment_params
-    params.require(:comment).permit :content,
+    params.require(:comment).permit :parent_id, :content,
       images_attributes: [:id, :image, :imageable_id, :imageable_type]
   end
 

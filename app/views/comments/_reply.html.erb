@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"><%= t ".title" %></h5>
+      <%= link_to "#", class: "close btn", data: {dismiss: "modal"} do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    </div>
+    <%= form_for [:food, @reply], remote: true do |f| %>
+      <div class="modal-body">
+        <%= f.hidden_field :parent_id, value: params[:comment_id] %>
+
+        <%= f.label :content, class: "required" %>
+        <%= f.text_area :content, required: true, class: "form-control" %>
+
+        <%= f.fields_for :images do |image| %>
+          <%= image.label :image %><br>
+          <%= image.file_field :image, accept: Settings.accept_img%>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t("comments.cancel"), class: "btn btn-danger col-md-2",
+          data: {dismiss: "modal"} %>
+        <%= f.submit t("comments.comment.reply"), class: "btn btn-success col-md-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>

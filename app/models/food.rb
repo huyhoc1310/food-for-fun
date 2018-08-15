@@ -1,7 +1,7 @@
 class Food < ApplicationRecord
   belongs_to :restaurant, foreign_key: :restaurant_id, optional: true
   belongs_to :category, foreign_key: :category_id, optional: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :images, as: :imageable
   has_many :order_details, dependent: :destroy
 

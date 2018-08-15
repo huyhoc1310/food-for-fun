@@ -274,5 +274,10 @@ en:
       title: "Edit this comment"
       edit: "Update"
     comment:
+      reply: "Reply"
+      edit: "Edit"
+      delete: "Delete"
       you_sure: "You sure?"
+    reply:
+      title: "Reply this comment"
     cancel: "Cancel"

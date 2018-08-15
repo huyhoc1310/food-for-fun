@@ -1,35 +1,42 @@
 <div class="comment">
   <div class="row">
-    <strong id="cmt-user-name">
-      <i class="fa fa-user"></i>
-      <%= comment.user.name %>
-    </strong>
+    <div class="col-md-3">
+      <strong>
+        <i class="fa fa-user"></i>
+        <%= comment.user.name %>
+      </strong>
+    </div>
+    <div class="col-md-3 cmt-day">
+      <%= l comment.updated_at, format: :medium %>
+    </div>
   </div>
-  <div class="row">
+  <div class="row col-md-12 cmt-body">
+    <div class="col-md-8">
+      <%= comment.content %>
+    </div>
     <% if comment.images.any? %>
       <div class="col-md-2">
         <%= image_tag comment.images.first.image.url, class: "image" %>
       </div>
     <% end %>
-    <div class="col-md-7">
-      <%= comment.content %>
-    </div>
+  </div>
+  <div class="row cmt-footer">
     <div class="col-md-3">
-      <div class="row col-md-12">
-        <% if current_user.current_user? comment.user %>
-          <%= link_to "#", remote: true, class: "btn" do %>
-            <i class="fa fa-reply"></i>
-          <% end %>
-          <%= link_to [:edit, @food, comment], remote: true, class: "btn" do %>
-            <i class="fa fa-edit"></i>
-          <% end %>
-          <%= link_to [@food, comment], remote: true, method: :delete,
-            class: "btn", data: {confirm: t(".you_sure")} do %>
-            <i class="fa fa-trash"></i>
-          <% end %>
-        <% end %>
-      </div>
-      <p id="cmt-updated-day"><%= l comment.updated_at, format: :medium %></p>
+      <% if current_user.current_user? @food.restaurant.user %>
+        <%= link_to t(".reply"), food_comment_reply_path(@food, comment),
+          remote: true %>&nbsp;
+      <% end %>
+      <% if current_user.current_user? comment.user %>
+        <%= link_to t(".edit"), [:edit, @food, comment], remote: true %>&nbsp;
+        <%= link_to t(".delete"), [@food, comment], remote: true, method: :delete,
+          data: {confirm: t(".you_sure")} %>
+      <% end %>
     </div>
   </div>
+
+  <% if comment.replies.any? %>
+    <% comment.replies.each do |reply| %>
+      <%= render reply %>
+    <% end %>
+  <% end %>
 </div>
