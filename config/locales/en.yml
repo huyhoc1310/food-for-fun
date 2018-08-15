@@ -152,6 +152,8 @@ en:
       create: "Create Food"
       update: "Update Food"
       edit: "Edit Food"
+      save_img: "Save Image"
+      edit_image: "Edit"
     title:
       edit: "Edit food"
       create: "Create a new food"
@@ -159,7 +161,8 @@ en:
       name: "Name of food"
       description: "Description for food"
       price: "Price "
-      choose: "Choose image for food"
+      image: "Choose image for food"
+      category: "Category for food"
     error:
       name: "Name is not blank!"
       description: "Description is not blank!"

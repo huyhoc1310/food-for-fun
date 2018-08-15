@@ -1,10 +1,12 @@
 class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :update, :edit]
+  before_action :get_categories, only: [:new, :edit]
+  before_action :get_images, only: [:edit, :show]
 
   def index; end
 
   def show
-    @images = @food.images
+    @category = Food.category params[:id]
   end
 
   def new
@@ -25,9 +27,7 @@ class FoodsController < ApplicationController
     end
   end
 
-  def edit
-    @images = @food.images
-  end
+  def edit; end
 
   def update
     if @food.update_attributes food_params
@@ -43,6 +43,7 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit :name, :description, :price, :rate,
+      :restaurant_id, :category_id,
       images_attributes: [:id, :image, :imageable_id, :imageable_type]
   end
 
@@ -51,5 +52,13 @@ class FoodsController < ApplicationController
     return if @food
     flash[:danger] = t "food.message.not_found"
     redirect_to root_url
+  end
+
+  def get_categories
+    @categories = Category.all
+  end
+
+  def get_images
+    @images = @food.images
   end
 end

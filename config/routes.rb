@@ -22,5 +22,7 @@ Rails.application.routes.draw do
     resources :suggests
   end
 
-  resources :foods
+  resources :foods do
+    resources :images
+  end
 end

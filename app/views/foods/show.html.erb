@@ -7,16 +7,25 @@
         </i>
       <% end %>
     </h1>
+    <p><%= t "food.label.category" %>:&nbsp;<%= @category.first.name_category %></p>
     <p><%= t "food.label.description" %>:&nbsp;<%= @food.description %></p>
     <p><%= t "food.label.price" %>:&nbsp;<%= @food.price %>$</p>
   </div>
   <div class="row col-md-12">
     <% if @images.any? %>
       <% @images.each do |p| %>
-        <div class="col-md-4 img_food">
-          <%= image_tag p.image.url, class: "img-fluid",
-            width: Settings.size_img, high: Settings.size_img,
-            :crop => :fill %>
+        <div class="col-md-4">
+          <%= image_tag p.image.url, class: "img-food", crop: :fill %>
+          <%= link_to t("food.submit.edit_image"), edit_food_image_path(@food, p),
+            {remote: true, data: {toggle: "modal",
+            target: "#modal-window"}, class: "fa fa-edit"} %>
+
+          <div id="modal-window" class="modal hide fade" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content"></div>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
