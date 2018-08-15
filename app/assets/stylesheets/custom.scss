@@ -67,3 +67,28 @@ input {
     border-radius: 5px;
   }
 }
+
+.foods {
+  margin: 30px 0 25px 0;
+  .food-item {
+    border: solid;
+    border-radius: 2px;
+    margin: 0 30px 20px 0;
+    .food-item-body {
+      padding: 10px 0 10px 0;
+    }
+  }
+}
+
+.restaurants {
+  margin: 25px 0 30px 0;
+  .restaurant-item {
+    border: solid;
+    border-radius: 2px;
+    margin: 0 30px 20px 0;
+    .restaurant-item-body {
+      padding: 10px 0 10px 0;
+    }
+  }
+}
+

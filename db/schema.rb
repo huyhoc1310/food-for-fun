@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(version: 2018_08_07_101802) do
     t.text "description"
     t.float "price"
     t.integer "rate"
+    t.bigint "restaurant_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_foods_on_category_id"
+    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_101802) do
   end
 
   add_foreign_key "foods", "categories"
+  add_foreign_key "foods", "restaurants"
   add_foreign_key "notifications", "restaurants"
   add_foreign_key "oder_details", "foods"
   add_foreign_key "oder_details", "orders"

@@ -15,4 +15,7 @@ class Food < ApplicationRecord
   validates_presence_of :name, message: I18n.t("food.error.name")
   validates_presence_of :description, message: I18n.t("food.error.description")
   validates_presence_of :price, message: I18n.t("food.error.price")
+
+  scope :search_foods, ->(search){where "name LIKE ?", "%#{search}%"}
+  scope :by_category, ->(id){where category_id: id}
 end

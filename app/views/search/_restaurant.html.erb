@@ -1,0 +1,18 @@
+<% @restaurants.each do |restaurant| %>
+  <div class="col-md-4 restaurant-item">
+    <div class="restaurant-item-body">
+      <h5><%= link_to restaurant.name, restaurant %></h5>
+      <ul>
+        <li><%= restaurant.description %></li>
+        <li><%= restaurant.address %></li>
+        <li><%= restaurant.phone_number %></li>
+      </ul>
+    </div>
+    <div class="row">
+      <% if restaurant.images.any? %>
+        <%= image_tag restaurant.images.first.image.url,
+          height: Settings.image.height, width: Settings.image.width %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
