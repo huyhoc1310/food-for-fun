@@ -104,6 +104,24 @@ en:
       edit:
         title: "Edit restaurant"
         save: "Save"
+    users:
+      destroy:
+        success: "User deleted successfully"
+        fail: "User delete failed"
+      update:
+        fail: "User update failed"
+        successful: "Update successful"
+      user:
+        set_manager: "Set manager"
+        set_admin: "Set admin"
+        unset_manager: "Unset manager"
+        unset_admin: "Unset admin"
+        confirm: "Are you sure?"
+        delete: "Delete user"
+      index:
+        title: "Manage users"
+      not_found: "User not found"
+
   suggests:
     new:
       title: "New suggest"

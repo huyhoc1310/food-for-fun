@@ -1,0 +1,42 @@
+<tr>
+  <td><a><%= user.name %></a></td>
+  <td><%= user.email %></td>
+  <td><%= user.phone_number %></td>
+  <% if is_admin? %>
+    <% if user.user? %>
+      <td>
+        <%= form_for [:admin, user] do |f| %>
+          <%= hidden_field_tag :role, :manager %>
+          <%= f.submit t(".set_manager"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+        <% end %>
+      </td>
+      <td>
+        <%= form_for [:admin, user] do |f| %>
+          <%= hidden_field_tag :role, :admin %>
+          <%= f.submit t(".set_admin"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+        <% end %>
+      </td>
+    <% elsif user.manager? %>
+      <td>
+      <%= form_for [:admin, user] do |f| %>
+        <%= hidden_field_tag :role, :user %>
+        <%= f.submit t(".unset_manager"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+      <% end %>
+      </td>
+    <% elsif user.admin? && !current_user?(user) %>
+      <td>
+      <%= form_for [:admin, user] do |f| %>
+        <%= hidden_field_tag :role, :user %>
+        <%= f.submit t(".unset_admin"), class: "btn btn-light", data: {confirm: t(".confirm")} %>
+      <% end %>
+      </td>
+    <% end %>
+    <td>
+      <% unless current_user?(user) %>
+        <%= link_to t(".delete"), user, method: :delete,
+                    data: {confirm: t(".confirm")} %>
+      <% end %>
+    </td>
+  <% else redirect_to root_url%>
+  <% end %>
+</tr>
