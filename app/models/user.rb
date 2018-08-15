@@ -13,7 +13,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
-  scope :load_data, ->{select(:id, :name, :email, :address).order :name}
+  scope :load_data, ->{select(:id, :name, :email, :address, :phone_number, :role).order :name}
   scope :activated_user, ->{where(activated: true)}
 
   validates :name, presence: true,
