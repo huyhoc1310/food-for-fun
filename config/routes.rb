@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  resources :users
+  resources :users do
+    member do
+      get :following
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   namespace :admin do
@@ -21,11 +25,16 @@ Rails.application.routes.draw do
   end
   resources :restaurants do
     resources :suggests
+    member do
+      get :followers
+    end
   end
 
   resources :foods do
     resources :images
   end
+
+  resources :relationships, only: [:create, :destroy]
 
   get "/search", to: "search#index"
   get "/restaurants/:city", to: "restaurants#index"

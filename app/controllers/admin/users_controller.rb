@@ -31,5 +31,4 @@ class Admin::UsersController < ApplicationController
     return if @user
     flash[:danger] = t "admin.users.not_found"
   end
-
 end
