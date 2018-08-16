@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def find_restaurant id
-    @restaurant = Restaurant.find_by id: "#{id}"
+    @restaurant = Restaurant.find_by id: id
   end
 
   def find_order_detail od_id

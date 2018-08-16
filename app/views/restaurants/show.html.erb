@@ -1,11 +1,14 @@
+<%= render "introduction" %>
+<div id="product-modal" class="modal fade"></div>
+<br>
+<h1 class="text-center"><%= t ".new_foods" %></h1>
+<%= render "new_food" %>
+<br>
+<h1 class="text-center"><%= t ".all_foods" %></h1>
+<%= render "all_foods" %>
 <%= link_to new_restaurant_suggest_path(@restaurant), remote: true, class: "btn btn-success" do %>
   <i class="fa fa-comments"></i>
 <% end %>
-
-<div id="product-modal" class="modal fade"></div>
-<div class="follow_form">
-  <%= render "follow_form" if logged_in? %>
-</div>
 <div class="suggests">
   <%= render @suggests %>
 </div>

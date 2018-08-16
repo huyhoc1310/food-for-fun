@@ -1,0 +1,20 @@
+<div class="py-5 introduction">
+  <div class="container">
+    <div class="row my-5 bg-primary">
+      <div class="p-4 col-md-6">
+        <p class="m-0"><%= t(".location") + "#{@restaurant.address}" %></p>
+        <h1 class="mb-3"><%= @restaurant.name %></h1>
+        <div class="stats">
+          <p class="lead" id="followers"><%= "#{@restaurant.followers.count} "+ t(".followers") %></p>
+        </div>
+        <p class="my-4"><%= @restaurant.description %></p>
+        <div class="follow_form">
+          <%= render "follow_form" if logged_in? %>
+        </div>
+      </div>
+      <div class="p-0 col-md-6 d-none d-md-block">
+        <%= image_tag("chef_light.jpg", class: "img-fluid d-block") %>
+      </div>
+    </div>
+  </div>
+</div>

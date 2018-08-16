@@ -6,15 +6,16 @@ class RestaurantsController < ApplicationController
 
   def show
     @suggests = @restaurant.suggests.all
+    @new_foods = @restaurant.foods.get_new_foods @restaurant.id
   end
 
   def restaurant_foods
     @restaurant = Restaurant.find_by_id params[:restaurant_id]
-    if current_order.nil?
-      @order_detail = OrderDetail.new
-    else
-      @order_detail = current_order.order_details.new
-    end
+    @order_detail = if current_order.nil?
+                      OrderDetail.new
+                    else
+                      current_order.order_details.new
+                    end
   end
 
   private

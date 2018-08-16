@@ -1,1 +1,2 @@
 $("#follow_form").html("<%= j render("restaurants/unfollow") %>");
+$("#followers").html('<%= "#{@restaurant.followers.count} "+ t("restaurants.introduction.followers") %>');

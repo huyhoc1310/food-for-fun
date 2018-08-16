@@ -37,7 +37,7 @@ class OrderDetailsController < ApplicationController
 
   def order_detail_params
     params.require(:order_detail).permit :id, :quantity, :price, :total_price,
-     :food_id, :order_id
+      :food_id, :order_id
   end
 
   def init

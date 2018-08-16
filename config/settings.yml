@@ -24,3 +24,4 @@ image_times: 4
 image:
   height: 100%
   width: 100%
+new_foods_limit: 4
