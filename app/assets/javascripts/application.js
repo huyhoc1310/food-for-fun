@@ -17,6 +17,4 @@
 //= require popper
 //= require jquery3
 //= require bootstrap-sprockets
-//= require animate-in
-//= require navbar-ontop
-//= require smooth-scroll
+//= require_tree ../../../vendor/assets/javascripts

@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
 <% if @food.disable? %>
 <% else %>
   <div class="col-md-6 detail-food">
@@ -8,7 +9,7 @@
         </i>
       <% end %>
       <%= link_to food_delete_food_path(@food.id), method: :post,
-          data: { confirm: t("food.confirm.confirm_del")}, remote: true do %>
+        data: {confirm: t("food.confirm.confirm_del")}, remote: true do %>
         <i class="fa fa-trash" id="i_del" data-toggle="tooltip" title="Delete food">
         </i>
       <% end %>
@@ -16,6 +17,16 @@
     <p><%= t "food.label.category" %>:&nbsp;<%= @category.first.name_category %></p>
     <p><%= t "food.label.description" %>:&nbsp;<%= @food.description %></p>
     <p><%= t "food.label.price" %>:&nbsp;<%= @food.price %>$</p>
+    <%= t ".score" %>
+    <%= @food.average("score").present? ? @food.average("score").avg : 0 %>/
+    <%= Settings.rating_stars %>
+    <%= t(".with") + @food.rates("score").count.to_s + t(".votes") %>
+    <br>
+    <% if current_user %>
+      <%= t ".rate_food" %>
+      <%= rating_for @food, "score" %>
+      <br>
+    <% end %>
   </div>
   <div class="row col-md-12">
     <% if @images.any? %>

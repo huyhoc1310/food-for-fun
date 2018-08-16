@@ -25,3 +25,4 @@ image:
   height: 100%
   width: 100%
 new_foods_limit: 4
+rating_stars: 5

@@ -216,6 +216,11 @@ en:
   foods:
     filter_form:
       select_one: "Select one!"
+    show:
+      score: "Score: "
+      rate_food: "Rate this food: "
+      with: " with "
+      votes: " votes "
   order_detail:
     message:
       create_success: "Create success!"

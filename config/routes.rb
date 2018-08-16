@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "/rate", to: "rater#create", as: "rate"
   root "static_pages#home"
 
   get "/help", to: "static_pages#help"

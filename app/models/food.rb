@@ -26,4 +26,6 @@ class Food < ApplicationRecord
   end)
   scope :search_foods, ->(search){where "name LIKE ?", "%#{search}%"}
   scope :by_category, ->(id){where category_id: id}
+
+  ratyrate_rateable "score"
 end
