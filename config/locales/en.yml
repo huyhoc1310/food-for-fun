@@ -192,6 +192,8 @@ en:
       city: "-- Select City --"
       hanoi: "Ha Noi"
       hcm: "Ho Chi Minh"
+    follow: "Follow"
+    unfollow: "Unfollow"
   foods:
     filter_form:
       select_one: "Select one!"

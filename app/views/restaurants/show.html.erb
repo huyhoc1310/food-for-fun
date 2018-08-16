@@ -3,7 +3,9 @@
 <% end %>
 
 <div id="product-modal" class="modal fade"></div>
-
+<div class="follow_form">
+  <%= render "follow_form" if logged_in? %>
+</div>
 <div class="suggests">
   <%= render @suggests %>
 </div>

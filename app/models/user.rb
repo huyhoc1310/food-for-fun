@@ -4,8 +4,9 @@ class User < ApplicationRecord
   has_many :suggests, dependent: :destroy
   has_many :images, as: :imageable, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :relationships, dependent: :destroy
-  # has_many :restaurants, through: :relationships
+  has_many :active_relationships, class_name: Relationship.name,
+           foreign_key: :user_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
 
   enum role: [:user, :manager, :admin]
 
@@ -17,20 +18,20 @@ class User < ApplicationRecord
   scope :activated_user, ->{where(activated: true)}
 
   validates :name, presence: true,
-                   length: {maximum: Settings.model.users.name.maximum}
+            length: {maximum: Settings.model.users.name.maximum}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,
-                    length: {maximum: Settings.model.users.email.maximum},
-                    format: {with: VALID_EMAIL_REGEX},
-                    uniqueness: {case_sensitive: false}
+            length: {maximum: Settings.model.users.email.maximum},
+            format: {with: VALID_EMAIL_REGEX},
+            uniqueness: {case_sensitive: false}
   validates :address, presence: true,
-                   length: {maximum: Settings.model.users.address.maximum}
+            length: {maximum: Settings.model.users.address.maximum}
   validates :phone_number, presence: true,
-                   length: {maximum: Settings.model.users.phone.maximum}
+            length: {maximum: Settings.model.users.phone.maximum}
   has_secure_password
   validates :password, presence: true,
-                       length: {minimum: Settings.model.users.password.minimum},
-                       allow_nil: true
+            length: {minimum: Settings.model.users.password.minimum},
+            allow_nil: true
 
   class << self
     def digest string
@@ -88,6 +89,18 @@ class User < ApplicationRecord
     reset_sent_at < Settings.timeout.reset_sent.hours.ago
   end
 
+  def follow restaurant
+    following << restaurant
+  end
+
+  def unfollow restaurant
+    following.delete restaurant
+  end
+
+  def following? restaurant
+    following.include? restaurant
+  end
+
   private
 
   def downcase_email
@@ -95,7 +108,7 @@ class User < ApplicationRecord
   end
 
   def create_activation_digest
-    self.activation_token  = User.new_token
+    self.activation_token = User.new_token
     self.activation_digest = User.digest activation_token
   end
 end
