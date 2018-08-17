@@ -1,0 +1,36 @@
+<div id="new_foods" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#new_foods" data-slide-to="0" class="active"></li>
+    <% (Settings.new_foods_limit - 1).times do |index| %>
+      <li data-target="#new_foods" data-slide-to="
+        <% index %>"></li>
+    <% end %>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag find_img_food(@new_foods.first.id).first.image.url, alt: "food image" %>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @new_foods.first.name, food_path(@new_foods.first.id) %></h5>
+        <p><%= @new_foods.first.description %></p>
+      </div>
+    </div>
+    <% @new_foods.each do |food, index| %>
+      <% next if index == 0 %>
+      <div class="carousel-item">
+        <%= image_tag find_img_food(food.id).first.image.url, alt: "food image" %>
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= link_to food.name, food_path(food.id) %></h5>
+          <p><%= food.description %></p>
+        </div>
+      </div>
+    <% end %>
+    <a class="carousel-control-prev" href="#new_foods" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only"><%= t ".previous" %></span>
+    </a>
+    <a class="carousel-control-next" href="#new_foods" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only"><%= t ".next" %></span>
+    </a>
+  </div>
+</div>

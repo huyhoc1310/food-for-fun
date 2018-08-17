@@ -23,7 +23,7 @@ class OrderDetail < ApplicationRecord
   end
 
   def total_price
-    price*quantity
+    price * quantity
   end
 
   private

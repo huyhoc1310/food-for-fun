@@ -203,6 +203,16 @@ en:
       hcm: "Ho Chi Minh"
     follow: "Follow"
     unfollow: "Unfollow"
+    introduction:
+      welcome: "Welcome to "
+      followers: "followers"
+      location: "Location: "
+    new_food:
+      previous: "Previous"
+      next: "Next"
+    show:
+      new_foods: "New foods"
+      all_foods: "All foods"
   foods:
     filter_form:
       select_one: "Select one!"
