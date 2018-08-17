@@ -49,11 +49,22 @@ class FoodsController < ApplicationController
     end
   end
 
+  def update_status
+    @food = Food.find_by_id params[:food_id]
+    if @food.update_attributes status: :disable
+      flash[:success] = t "food.message.disable_success"
+      redirect_to @food
+    else
+      flash[:danger] = t "food.message.disable_fail"
+      redirect_to root_url
+    end
+  end
+
   private
 
   def food_params
     params.require(:food).permit :name, :description, :price, :rate,
-      :restaurant_id, :category_id,
+      :restaurant_id, :category_id, :status,
       images_attributes: [:id, :image, :imageable_id, :imageable_type]
   end
 
