@@ -54,14 +54,16 @@ ActiveRecord::Schema.define(version: 2018_08_07_101802) do
     t.index ["restaurant_id"], name: "index_notifications_on_restaurant_id"
   end
 
-  create_table "oder_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "quantity"
+    t.integer "price"
+    t.float "total_price"
     t.bigint "order_id"
     t.bigint "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_oder_details_on_food_id"
-    t.index ["order_id"], name: "index_oder_details_on_order_id"
+    t.index ["food_id"], name: "index_order_details_on_food_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -124,8 +126,8 @@ ActiveRecord::Schema.define(version: 2018_08_07_101802) do
   add_foreign_key "foods", "categories"
   add_foreign_key "foods", "restaurants"
   add_foreign_key "notifications", "restaurants"
-  add_foreign_key "oder_details", "foods"
-  add_foreign_key "oder_details", "orders"
+  add_foreign_key "order_details", "foods"
+  add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "relationships", "restaurants"
   add_foreign_key "relationships", "users"

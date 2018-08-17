@@ -1,0 +1,32 @@
+<div class="row row-flex">
+  <div class="col-md-12">
+    <h2 class="block-title"><%= @restaurant.name %></h2>
+    <h4 class="about-us">
+      <i><%= t "restaurant.about_us" %>:</i>&nbsp;<%= @restaurant.description %></span>
+    </h4>
+  </div>
+  <% find_food_restaurant(@restaurant.id).each do |f| %>
+    <div class="row col-md-12" style="padding-bottom: 20px">
+      <div class="col-md-3">
+        <%= image_tag find_img_food(f.id).first.image.url, class: "img-food", crop: :fill %>
+      </div>
+      <div class="col-md-6">
+        <p style="font-size: 24px">
+          <i><strong><%= f.name %></strong></i>
+        </p>
+        <p>$&nbsp;<%= f.price %></p>
+        <p>
+          <%= f.description %>
+        </p>
+        <%= form_for(@order_detail, remote: true) do |od| %>
+          <%= od.hidden_field :food_id, value: f.id %>
+          <div class="form-group">
+            <%= od.number_field :quantity, value: 1, min: 1, max: 100 %>
+          </div>
+          <%= od.submit t("order_detail.submit.add_cart"), class: "btn btn-primary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

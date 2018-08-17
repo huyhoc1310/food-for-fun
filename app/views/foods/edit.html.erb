@@ -1,5 +1,5 @@
 <%= form_for @food do |f| %>
-  <div class="col-md-8" id="edit_food">
+  <div class="col-md-6" id="edit_food">
     <h1><strong><%= t "food.title.edit" %></strong></h1>
     <%= f.label :name, t("food.label.name"), class: "required" %>
     <%= f.text_field :name,required: true, class: "form-control" %>
@@ -17,7 +17,7 @@
 
   <div class="col-md-12 row">
     <% @food.images.each do |p| %>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= image_tag p.image.url, class: "img-food", crop: :fill %>
       </div>
     <% end %>

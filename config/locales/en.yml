@@ -5,11 +5,13 @@ en:
       brand: "Food for fun"
       home: "Home"
       restaurants: "Restaurants"
+      new_food: "New Food"
       orders: "Orders"
       search: "Search"
       logout: "Logout"
       signup: "Sign up"
       signin: "Sign in"
+      foods: "All foods"
     footer:
       location: "Location"
       contact: "Contact"
@@ -166,21 +168,24 @@ en:
       update_success: "Update food success!"
       update_fail: "Update food fail!"
       not_found: "Food not found!"
+      list_foods: "List all food"
     submit:
       create: "Create Food"
       update: "Update Food"
       edit: "Edit Food"
       save_img: "Save Image"
       edit_image: "Edit"
+      order: "Order"
     title:
       edit: "Edit food"
-      create: "Create a new food"
+      create: "Create a food for restaurant"
     label:
       name: "Name of food"
       description: "Description for food"
       price: "Price "
       image: "Choose image for food"
       category: "Category for food"
+      restaurant: "Choose restaurant"
     error:
       name: "Name is not blank!"
       description: "Description is not blank!"
@@ -197,3 +202,23 @@ en:
   foods:
     filter_form:
       select_one: "Select one!"
+  order_detail:
+    message:
+      create_success: "Create success!"
+      create_fail: "Create fail!"
+      nothing_od: "Nothing in cart!"
+    submit:
+      delete: "Delete"
+      confirm_delete: "Are you sure?"
+      add_cart: "Add to cart"
+    label:
+      quantity: "Quantity"
+      total: "Total"
+  order:
+    message:
+      ordered_success: "Ordered succesfully!"
+      ordered_failure: "Ordered failure!"
+    submit:
+      confirm_order: "Confirm order"
+  restaurant:
+    about_us: "About us"

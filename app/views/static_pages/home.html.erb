@@ -2,15 +2,49 @@
 <div class="row">
   <%= render "foods/filter_form" %>
 </div>
-<div class="py-5 text-center welcome-home">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="display-3 mb-4"><%= t ".welcome" %></h1>
-        <p class="lead mb-5"><%= t ".welcome_text" %></p>
-        <%= link_to t("layouts.header.signin"), signin_path, class: "btn btn-lg mx-1 btn-secondary" %>
-        <%= link_to t("layouts.header.signup"), signup_path, class: "btn btn-lg btn-primary mx-1" %>
+<% if logged_in? %>
+  <% if is_manager? %>
+    <div class="row row-flex">
+      <% @restaurants.each do |r| %>
+        <div class="col-md-12">
+          <h2 class="block-title"><%= r.name %></h2>
+          <h4 class="about-us">
+            <i><%= t "restaurant.about_us" %>:</i>&nbsp;<%= r.description %></span>
+          </h4>
+        </div>
+        <div class="col-md-12">
+          <% find_food_restaurant(r.id).each do |f| %>
+            <p>
+              <i><strong><%= t "food.label.name" %>:</strong></i>&nbsp;
+              <%= link_to f.name, food_path(f.id) %>
+            </p>
+            <div class="row">
+              <% find_img_food(f.id).each do |i| %>
+                <div class="col-md-3">
+                  <%= image_tag i.image.url, class: "img-food", crop: :fill %>
+                </div>
+              <% end %>
+            </div>
+          <br>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% elsif is_admin? %>
+
+  <% else %>
+  <% end %>
+<% else %>
+  <div class="py-5 text-center welcome-home">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 mb-4"><%= t ".welcome" %></h1>
+          <p class="lead mb-5"><%= t ".welcome_text" %></p>
+          <%= link_to t("layouts.header.signin"), signin_path, class: "btn btn-lg mx-1 btn-secondary" %>
+          <%= link_to t("layouts.header.signup"), signup_path, class: "btn btn-lg btn-primary mx-1" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

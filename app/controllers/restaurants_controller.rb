@@ -8,6 +8,15 @@ class RestaurantsController < ApplicationController
     @suggests = @restaurant.suggests.all
   end
 
+  def restaurant_foods
+    @restaurant = Restaurant.find_by_id params[:restaurant_id]
+    if current_order.nil?
+      @order_detail = OrderDetail.new
+    else
+      @order_detail = current_order.order_details.new
+    end
+  end
+
   private
 
   def load_restaurant

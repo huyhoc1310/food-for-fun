@@ -3,7 +3,7 @@ class Food < ApplicationRecord
   belongs_to :category, foreign_key: :category_id, optional: true
   has_many :comments
   has_many :images, as: :imageable
-  has_many :order_details
+  has_many :order_details, dependent: :destroy
 
   accepts_nested_attributes_for :images, allow_destroy: true
 

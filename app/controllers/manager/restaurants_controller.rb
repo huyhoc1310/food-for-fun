@@ -3,7 +3,8 @@ class Manager::RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i(show edit update destroy)
 
   def index
-    @restaurants = current_user.restaurants
+    @restaurants = Restaurant.includes(:user)
+                             .where("restaurants.user_id = #{current_user.id}")
   end
 
   def new
@@ -12,6 +13,7 @@ class Manager::RestaurantsController < ApplicationController
 
   def create
     @restaurant = current_user.restaurants.build restaurant_params
+    @restaurant.user_id = current_user.id
     if @restaurant.save
       flash[:success] = t "manager.create_success"
       redirect_to manager_restaurants_path
@@ -42,6 +44,6 @@ class Manager::RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit :name, :description, :address,
-      :phone_number
+      :phone_number, :user_id
   end
 end
