@@ -1,0 +1,35 @@
+<div class="comment">
+  <div class="row">
+    <strong id="cmt-user-name">
+      <i class="fa fa-user"></i>
+      <%= comment.user.name %>
+    </strong>
+  </div>
+  <div class="row">
+    <% if comment.images.any? %>
+      <div class="col-md-2">
+        <%= image_tag comment.images.first.image.url, class: "image" %>
+      </div>
+    <% end %>
+    <div class="col-md-7">
+      <%= comment.content %>
+    </div>
+    <div class="col-md-3">
+      <div class="row col-md-12">
+        <% if current_user.current_user? comment.user %>
+          <%= link_to "#", remote: true, class: "btn" do %>
+            <i class="fa fa-reply"></i>
+          <% end %>
+          <%= link_to [:edit, @food, comment], remote: true, class: "btn" do %>
+            <i class="fa fa-edit"></i>
+          <% end %>
+          <%= link_to [@food, comment], remote: true, method: :delete,
+            class: "btn", data: {confirm: t(".you_sure")} do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <p id="cmt-updated-day"><%= l comment.updated_at, format: :medium %></p>
+    </div>
+  </div>
+</div>

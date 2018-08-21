@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :foods do
     post "/delete_food", to: "foods#update_status"
     resources :images
+    resources :comments
   end
 
   resources :relationships, only: [:create, :destroy]

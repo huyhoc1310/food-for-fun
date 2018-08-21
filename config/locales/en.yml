@@ -53,9 +53,15 @@ en:
     account_not_active: "Account not activated. "
     check_email_active_link: "Check your email for the activation link."
     create_suggest_success: "Create new suggest success!"
-    not_found_restaurant: "Not found restaurant!"
+    not_found_restaurant: "Restaurant not found!"
     suggest_deleted: "Suggest deleted!"
     fail_delete_suggest: "Delete suggest failed!"
+    not_found_food: " Food not found!"
+    create_comment_success: "Comment successlly!"
+    comment_deleted: "Comment deleted!"
+    fail_delete_comment: "Delete comment failed!"
+    comment_updated: "Comment is updated!"
+    not_found_comment: "Comment not found!"
   sessions:
     new:
       remember_me: "Remember me"
@@ -123,7 +129,6 @@ en:
       index:
         title: "Manage users"
       not_found: "User not found"
-
   suggests:
     new:
       title: "New suggest"
@@ -135,6 +140,7 @@ en:
   time:
     formats:
       default: "%a, %d %b %Y %l:%M %p"
+      medium: "%a, %l:%M %P %d-%m-%y"
   manager:
     create_success: "Create new restaurant successfully"
     create_error: "Create new restaurant failed"
@@ -241,3 +247,13 @@ en:
       confirm_order: "Confirm order"
   restaurant:
     about_us: "About us"
+  comments:
+    new:
+      title: "New comment for food"
+      create: "Comment"
+    edit:
+      title: "Edit this comment"
+      edit: "Update"
+    comment:
+      you_sure: "You sure?"
+    cancel: "Cancel"
