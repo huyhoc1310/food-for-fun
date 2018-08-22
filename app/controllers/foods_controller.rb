@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
     @category = Food.select("foods.id, categories.name as name_category")
                     .joins(:category)
                     .where("foods.category_id = categories.id AND foods.id = #{params[:id]}")
-    @comments = @food.comments.all
+    @comments = @food.comments.load_parents
   end
 
   def new

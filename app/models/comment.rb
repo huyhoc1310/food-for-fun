@@ -10,4 +10,6 @@ class Comment < ApplicationRecord
   accepts_nested_attributes_for :replies, allow_destroy: true
 
   validates :content, presence: true
+
+  scope :load_parents, ->{where("parent_id is null")}
 end
