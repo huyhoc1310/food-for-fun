@@ -1,6 +1,7 @@
 class OrderDetail < ApplicationRecord
   belongs_to :order, foreign_key: :order_id, optional: true
   belongs_to :food, foreign_key: :food_id, optional: true
+  belongs_to :restaurant, foreign_key: :restaurant_id, optional: true
 
   before_save :set_price
   before_save :set_total_price
@@ -11,12 +12,17 @@ class OrderDetail < ApplicationRecord
       .where("orders.user_id= #{id} and orders.status = 0")
   end)
 
-  scope :find_order_detail, (lambda do |f_id, u_id|
+  scope :find_order_detail, (lambda do |f_id, _u_id|
     joins(:order).select(:id, :quantity, :order_id, :price)
     .where food_id: f_id, order: {status: 0}
   end)
 
   scope :find_or_detail, ->(id){where order_id: id}
+
+  scope :get_revenue, (lambda do |restaurant|
+    joins(:restaurant).where(restaurant_id: restaurant.id)
+      .group_by_day("order_details.created_at").sum(:total_price)
+  end)
 
   def price
     if persisted?

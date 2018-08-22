@@ -12,6 +12,10 @@ class Food < ApplicationRecord
   validates_presence_of :name, message: I18n.t("food.error.name")
   validates_presence_of :description, message: I18n.t("food.error.description")
   validates_presence_of :price, message: I18n.t("food.error.price")
+  validates :price, numericality: {greater_than_or_equal_to: 0,
+                                   message: I18n.t("food.error.price_negative")}
+  validates :name, uniqueness: {scope: :restaurant_id,
+                                message: I18n.t("food.error.duplicate_name")}
 
   scope :category, (lambda do |id|
     joins(:category).select("categories.name as name_category")

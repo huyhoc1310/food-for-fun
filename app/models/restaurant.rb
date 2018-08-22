@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
   has_many :images, as: :imageable
   has_many :foods, dependent: :destroy
   has_many :notifications
+  has_many :order_details
   has_many :passive_relationships, class_name: Relationship.name,
            foreign_key: :restaurant_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower

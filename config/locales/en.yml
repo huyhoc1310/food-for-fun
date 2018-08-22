@@ -167,6 +167,10 @@ en:
       edit:
         title: "Edit restaurant"
         save: "Save"
+      show:
+        revenue_chart: "Revenue per day statistic chart"
+        most_ordered: "Most ordered foods"
+
   food:
     message:
       create_fail: "Create food fail!"
@@ -200,6 +204,8 @@ en:
       price: "Price is not blank!"
       image: "Image is not blank!"
       search: "Search is not blank!"
+      duplicate_name: "Foods in a restaurant can't have the same name"
+      price_negative: "Price can not be negative"
     confirm:
       confirm_del: "Are you sure?"
   restaurants:
