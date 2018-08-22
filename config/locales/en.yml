@@ -12,6 +12,7 @@ en:
       signup: "Sign up"
       signin: "Sign in"
       foods: "All foods"
+      users: "Users"
       menus: "Menu"
     footer:
       location: "Location"
@@ -228,6 +229,9 @@ en:
     show:
       new_foods: "New foods"
       all_foods: "All foods"
+      gmap: "Location on maps"
+      location: "Location: "
+      suggest: "Suggests"
   foods:
     filter_form:
       select_one: "Select one!"

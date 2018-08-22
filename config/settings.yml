@@ -31,3 +31,4 @@ new_foods_limit: 4
 rating_stars: 5
 format_time: "%H:%M:%S %d/%m/%Y"
 most_ordered_foods: 5
+gmap_options: "&size=300x300&zoom=17"

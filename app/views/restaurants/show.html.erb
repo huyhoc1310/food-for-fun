@@ -17,6 +17,9 @@
 <%= render "all_foods" %>
 
 <% if @restaurant.suggests.any? %>
-  <h1 class="cmt-title text-center">Suggests</h1>
+  <h1 class="cmt-title text-center"><%= t ".suggest" %></h1>
   <%= render @suggests %>
 <% end %>
+<h1 class="text-center"><%= t ".gmap" %></h1>
+<p class="lead text-center"><%= t(".location") + "#{@restaurant.address}" %></p>
+<%= image_tag google_map(@restaurant), class: "img-responsive center-block" %>

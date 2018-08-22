@@ -2,8 +2,6 @@
 <h2 class="text-center"><%= t ".title" %></h2>
 <div class="row justify-content-center">
   <div class="col-md-6 cl-md-offset-3 text-center">
-    <%= link_to t(".create"), new_admin_restaurant_path,
-      class: "btn btn-primary" %>
     <table class="table table-striped">
       <%= render @restaurants %>
     </table>
