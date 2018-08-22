@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include ApplicationHelper
+  include UsersHelper
+  include ImagesHelper
+  include OrderDetailsHelper
+  include RestaurantsHelper
+  include FoodsHelper
 
   private
 

@@ -1,0 +1,17 @@
+<div class="col-md-3">
+  <%= image_tag find_img_food(detail.food_id).first.image.url, class: "img-food", crop: :fill%>
+</div>
+<div class="col-md-4">
+  <p><strong>
+    <%= t "order.label.restaurant" %>:&nbsp;<%= find_restaurant(detail.restaurant_id).name %>
+  </strong></p>
+  <p><strong>
+    <%= t "order.label.food" %>:&nbsp;<%= find_food(detail.food_id).name %>
+  </strong></p>
+  <p><%= t "order.label.quantity" %>:&nbsp;<%= detail.quantity %></p>
+  <p>
+    <%= t "order.label.date" %>:&nbsp;
+    <%= detail.updated_at.strftime(Settings.format_time) %>
+  </p>
+  <p><%= t "order.label.sum_price" %>:&nbsp;<%= detail.total_price %>&nbsp;$</p>
+</div>

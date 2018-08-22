@@ -4,13 +4,12 @@ class OrderDetailsController < ApplicationController
   end
 
   def create
-    @order_detail = OrderDetail.find_order_detail(order_detail_params[:food_id],
-      current_user.id).first
+    @order_detail = OrderDetail.find_order_detail(order_detail_params[:food_id], current_user.id).first
     if @order_detail.nil?
       @order = current_order
       if current_order.nil? || current_order.user_id != current_user.id
         init
-      elsif current_order.status == "ordered" || current_order.status == "received"
+      elsif current_order.ordered? || current_order.received? || current_order.accepted?
         init
       else
         @order = current_order
@@ -37,7 +36,7 @@ class OrderDetailsController < ApplicationController
 
   def order_detail_params
     params.require(:order_detail).permit :id, :quantity, :price, :total_price,
-      :food_id, :order_id
+     :food_id, :order_id, :restaurant_id
   end
 
   def init

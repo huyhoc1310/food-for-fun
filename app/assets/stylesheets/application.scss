@@ -16,7 +16,6 @@
 }
 
 footer {
-  position: absolute;
   width:100%;
   height: 80px;
 }
@@ -29,7 +28,6 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
-
 
 input {
   height: auto !important;
@@ -46,6 +44,11 @@ input {
 }
 
 /* image */
+
+#img_detail_order {
+  height: 40px;
+  width:40px;
+}
 
 .img-food {
   width: 100%;
@@ -137,4 +140,13 @@ label.required:after{
   -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
+}
+
+#each-detail, #confirm-order, #order-detail, #food-index {
+  padding: 20px;
+}
+
+#detail-submit, #confirm-order {
+  padding: 20px;
+  border-top: ridge;
 }
