@@ -11,6 +11,8 @@ class Manager::RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show; end
+
   def create
     @restaurant = current_user.restaurants.build restaurant_params
     @restaurant.user_id = current_user.id

@@ -1,0 +1,6 @@
+<h1 class="text-center"><%= @restaurant.name %></h1>
+<p class="lead text-center"><%= t ".revenue_chart" %></p>
+<%= line_chart get_revenue_per_day @restaurant %>
+<p class="lead text-center"><%= t ".most_ordered" %></p>
+<%= column_chart get_most_ordered_foods @restaurant %>
+
