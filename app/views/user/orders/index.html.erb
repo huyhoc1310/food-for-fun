@@ -1,0 +1,24 @@
+<h1><%= t "order.submit.all_orders" %></h1>
+<% if @orders.blank? %>
+  <p><%= t "order.message.no_order" %></p>
+<% else %>
+  <% @orders.each do |order| %>
+    <div class="row col-md-12">
+      <% if find_order_detail_o_id(order).count > 1 %>
+        <% find_order_detail_o_id(order).each do |detail| %>
+          <div class="row col-md-12">
+            <%= render "shared/detail_food", detail: detail %>
+            <%= render "shared/detail_restaurant", od_res: detail %>
+          </div>
+        <% end %>
+        <%= render "user/orders/form_submit", od_res: order %>
+      <% else %>
+        <div class="row col-md-12">
+          <%= render "shared/detail_food", detail: find_order_detail_o_id(order).first %>
+          <%= render "shared/detail_restaurant", od_res: find_order_detail_o_id(order.id).first%>
+        </div>
+        <%= render "user/orders/form_submit", od_res: order %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -248,11 +248,13 @@ en:
       unaccepted_order: "Order can't be completed"
       cancel_success: "Cancel order success!"
       cancel_failure: "Cancel order failure!"
+      no_order: "Your order is blank!"
     submit:
       confirm_order: "Confirm order"
       accept_order: "Accept order"
       status_accepter: "Your order is completed."
       cancel_order: "Cancel order"
+      all_orders: "All your orders"
     label:
       customer: "Customer"
       customer_add: "Address"
@@ -260,10 +262,16 @@ en:
       restaurant: "Name"
       food: "Food"
       quantity: "Quantity"
-      date: "Date"
+      date: "Order date"
       sum_price: "Sum price"
+      init_price: "Price"
       sum_order: "Sum order"
       all_order_accepted: "List order were be accepted"
+    status:
+      unordered: "Your order haven't ordered yet."
+      ordered: "Your order is watting restaurant's confirmation."
+      accepted: "Your order is shipping!"
+      received: "Your order is sended!"
   restaurant:
     about_us: "About us"
   comments:
