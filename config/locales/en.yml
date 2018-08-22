@@ -246,10 +246,13 @@ en:
       no_order: "You don't have any orders!"
       accepted_order: "Order can be completed!"
       unaccepted_order: "Order can't be completed"
+      cancel_success: "Cancel order success!"
+      cancel_failure: "Cancel order failure!"
     submit:
       confirm_order: "Confirm order"
       accept_order: "Accept order"
       status_accepter: "Your order is completed."
+      cancel_order: "Cancel order"
     label:
       customer: "Customer"
       customer_add: "Address"
