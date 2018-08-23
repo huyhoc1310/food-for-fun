@@ -1,12 +1,12 @@
 class FoodsController < ApplicationController
+  before_action :is_manager?
   before_action :find_food, only: [:show, :update, :edit]
   before_action :get_categories, only: [:new, :edit]
   before_action :get_images, only: [:edit, :show]
   before_action :load_foods, only: :index
+  before_action :load_restaurant, only: :show
 
-  def index
-    @foods = Food.all.page(params[:page]).per Settings.rows
-  end
+  def index; end
 
   def show
     @category = Food.category params[:id]
@@ -43,7 +43,7 @@ class FoodsController < ApplicationController
   def update
     if @food.update_attributes food_params
       flash[:success] = t "food.message.update_success"
-      redirect_to manager_menu_path(@food.restaurant_id)
+      redirect_to @food
     else
       flash[:danger] = t "food.message.update_fail"
       render :edit
@@ -85,7 +85,11 @@ class FoodsController < ApplicationController
   end
 
   def load_foods
-    @foods = Food.all
+    @foods = Food.all.page(params[:page]).per Settings.rows
     @foods = Food.by_category params[:category] if params[:category]
+  end
+
+  def load_restaurant
+    @restaurant = Restaurant.find_by id: params[:restaurant_id]
   end
 end

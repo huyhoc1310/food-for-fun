@@ -1,9 +1,5 @@
 <% provide :title, t(".title") %>
 <h1 class="text-center"><%= t ".title" %></h1>
-<div class="row justify-content-center">
-  <div class="row">
-    <div class="col-md-12">
-      <%= render "form" %>
-    </div>
-  </div>
+<div class="col-md-8" id="new-restaurant">
+  <%= render "form" %>
 </div>
