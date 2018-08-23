@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     member do
       get :followers
     end
+    resources :categories
   end
 
   resources :foods do

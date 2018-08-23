@@ -66,13 +66,15 @@ input {
   float: right;
 }
 
-.suggests {
-  float: right;
-  .suggest {
-    margin: 15px;
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 5px;
+.suggest {
+  margin: 15px;
+  padding: 5px;
+  border-bottom: 1px solid;
+  border-color: $gray;
+  .sgt-day {
+    font-size: 15px;
+    font-style: italic;
+    color: $gray;
   }
 }
 
@@ -130,4 +132,9 @@ input {
   border-radius: 10px;
   height: 100%;
   width: 100%;
+}
+
+.sticky-top {
+  top: 15px;
+  right: 15px;
 }

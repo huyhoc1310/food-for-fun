@@ -1,3 +1,12 @@
+<%= link_to new_restaurant_suggest_path(@restaurant), remote: true, class: "btn btn-success rounded-circle sticky-top pull-right" do %>
+  <i class="fa fa-comments"></i>
+<% end %>
+<% if current_user.current_user? @restaurant.user %>
+  <%= link_to new_restaurant_category_path(@restaurant), remote: true,
+    class: "btn btn-primary rounded-circle sticky-top pull-right" do %>
+    <i class="fa fa-plus" data-toggle="tooltip" title="Category"></i>
+  <% end %>
+<% end %>
 <%= render "introduction" %>
 <div id="product-modal" class="modal fade"></div>
 <br>
@@ -6,9 +15,8 @@
 <br>
 <h1 class="text-center"><%= t ".all_foods" %></h1>
 <%= render "all_foods" %>
-<%= link_to new_restaurant_suggest_path(@restaurant), remote: true, class: "btn btn-success" do %>
-  <i class="fa fa-comments"></i>
-<% end %>
-<div class="suggests">
+
+<% if @restaurant.suggests.any? %>
+  <h1 class="cmt-title text-center">Suggests</h1>
   <%= render @suggests %>
-</div>
+<% end %>

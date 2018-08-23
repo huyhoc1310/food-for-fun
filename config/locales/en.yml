@@ -62,6 +62,7 @@ en:
     fail_delete_comment: "Delete comment failed!"
     comment_updated: "Comment is updated!"
     not_found_comment: "Comment not found!"
+    create_category_success: "Create new category successlly!"
   sessions:
     new:
       remember_me: "Remember me"
@@ -133,7 +134,7 @@ en:
     new:
       title: "New suggest"
     form:
-      create: "Creat"
+      create: "Create"
       cancel: "Cancel"
     suggest:
       you_sure: "You sure?"
@@ -300,3 +301,8 @@ en:
     reply:
       title: "Reply this comment"
     cancel: "Cancel"
+  categories:
+    new:
+      new_category: "New category"
+      title: "New category for restaurant"
+      create: "Create"
