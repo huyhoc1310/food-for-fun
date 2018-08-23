@@ -8,11 +8,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
+      <% if !@new_foods.first.nil? %>
       <%= image_tag find_img_food(@new_foods.first.id).first.image.url, alt: "food image" %>
       <div class="carousel-caption d-none d-md-block">
         <h5><%= link_to @new_foods.first.name, food_path(@new_foods.first.id) %></h5>
         <p><%= @new_foods.first.description %></p>
       </div>
+      <% end %>
     </div>
     <% @new_foods.each do |food, index| %>
       <% next if index == 0 %>

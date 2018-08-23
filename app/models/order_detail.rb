@@ -14,7 +14,7 @@ class OrderDetail < ApplicationRecord
 
   scope :find_order_detail, (lambda do |f_id, _u_id|
     joins(:order).select(:id, :quantity, :order_id, :price)
-    .where food_id: f_id, order: {status: 0}
+    .where food_id: f_id, orders: {status: 0}
   end)
 
   scope :find_or_detail, ->(id){where order_id: id}

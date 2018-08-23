@@ -2,18 +2,20 @@
 <% if @food.disable? %>
 <% else %>
   <div class="col-md-6 detail-food">
-    <h1>
-      <strong><%= @food.name %>&nbsp;</strong>
-      <%= link_to edit_food_path do %>
-        <i class="fa fa-edit" id="i_edit" data-toggle="tooltip" title="Edit food">
-        </i>
-      <% end %>
-      <%= link_to food_delete_food_path(@food.id), method: :post,
-        data: {confirm: t("food.confirm.confirm_del")}, remote: true do %>
-        <i class="fa fa-trash" id="i_del" data-toggle="tooltip" title="Delete food">
-        </i>
-      <% end %>
-    </h1>
+    <% if !check_order_restaurant(@food.restaurant_id, current_user.id).blank? %>
+      <h1>
+        <strong><%= @food.name %>&nbsp;</strong>
+        <%= link_to edit_food_path do %>
+          <i class="fa fa-edit" id="i_edit" data-toggle="tooltip" title="Edit food">
+          </i>
+        <% end %>
+        <%= link_to food_delete_food_path(@food.id), method: :post,
+          data: {confirm: t("food.confirm.confirm_del")}, remote: true do %>
+          <i class="fa fa-trash" id="i_del" data-toggle="tooltip" title="Delete food">
+          </i>
+        <% end %>
+      </h1>
+    <% end %>
     <p><%= t "food.label.category" %>:&nbsp;<%= @category.first.name_category %></p>
     <p><%= t "food.label.description" %>:&nbsp;<%= @food.description %></p>
     <p><%= t "food.label.price" %>:&nbsp;<%= @food.price %>$</p>

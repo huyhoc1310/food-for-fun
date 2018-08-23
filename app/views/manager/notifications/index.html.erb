@@ -1,0 +1,55 @@
+<div class="row col-md-12">
+  <% @notifications.each do |order_id| %>
+    <% next if check_order_restaurant(find_order_detail_o_id(order_id.order_id).first.restaurant_id, current_user.id).blank? %>
+    <div class="col-md-12" id="infor_customer">
+      <h3><%= t "order.label.customer" %>:&nbsp;
+        <%= find_customer(load_order(order_id.order_id).first.user_id).name %>
+      </h3>
+      <p>
+        <%= t "order.label.customer_add" %>:&nbsp;
+        <%= find_customer(load_order(order_id.order_id).first.user_id).address %>
+      </p>
+      <p>
+        <%= t "order.label.customer_phone" %>:&nbsp;
+        <%= find_customer(load_order(order_id.order_id).first.user_id).phone_number %>
+      </p>
+    </div>
+    <% find_order_detail_o_id(order_id.order_id).each do |detail| %>
+      <% if !check_order_restaurant(detail.restaurant_id, current_user.id).blank? %>
+        <div class="col-md-6" id="each-detail">
+          <p><i>
+            <strong><%= t "notification.food_name" %>:&nbsp;</strong>
+            <%= find_food(detail.food_id).name %></i></p>
+          <p><%= t "order_detail.label.price" %>:&nbsp;
+            <%= find_food(detail.food_id).price %>&nbsp;$
+          </p>
+          <p><%= t "order_detail.label.quantity" %>:&nbsp;
+            <%= detail.quantity %>
+          </p>
+          <p><i>
+            <%= t "notification.name_restaurant" %>:&nbsp;
+            <%= find_restaurant(detail.restaurant_id).name %></i></p>
+          <p><i>
+            <%= t "notification.add_restaurant" %>:&nbsp;
+            <%= find_restaurant(detail.restaurant_id).address %></i></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="row col-md-12">
+      <div class="col-md-6">
+        <% if load_order(order_id.order_id).first.received? %>
+          <p><i><%= t "notification.received_content" %></i></p>
+        <% else load_order(order_id.order_id).first.accepted?%>
+          <p><i><%= t "notification.accepted_content" %></i></p>
+        <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <p><strong>
+          <%= t "order.label.sum_order" %>:&nbsp;
+          <%= load_order(order_id.order_id).first.total_pice %>&nbsp;$
+        </strong></p>
+      </div>
+    </div>
+  <% end %>
+</div>

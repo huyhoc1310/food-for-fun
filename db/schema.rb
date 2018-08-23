@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(version: 2018_08_22_090933) do
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.bigint "restaurant_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_notifications_on_order_id"
     t.index ["restaurant_id"], name: "index_notifications_on_restaurant_id"
   end
 
@@ -186,6 +188,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_090933) do
   add_foreign_key "comments", "users"
   add_foreign_key "foods", "categories"
   add_foreign_key "foods", "restaurants"
+  add_foreign_key "notifications", "orders"
   add_foreign_key "notifications", "restaurants"
   add_foreign_key "order_details", "foods"
   add_foreign_key "order_details", "orders"
