@@ -12,6 +12,7 @@ en:
       signup: "Sign up"
       signin: "Sign in"
       foods: "All foods"
+      menus: "Menu"
     footer:
       location: "Location"
       contact: "Contact"
@@ -189,6 +190,7 @@ en:
       save_img: "Save Image"
       edit_image: "Edit"
       order: "Order"
+      delete: "Delete food"
     title:
       edit: "Edit food"
       create: "Create a food for restaurant"
@@ -309,3 +311,5 @@ en:
       new_category: "New category"
       title: "New category for restaurant"
       create: "Create"
+  menu:
+    menu_res: "Menu of"

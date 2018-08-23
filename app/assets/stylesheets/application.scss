@@ -155,3 +155,49 @@ label.required:after{
 #status {
   color: $red;
 }
+
+#menu {
+  margin: auto;
+}
+
+.offer-item {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.offer-item img {
+  width: 20%;
+  float: left;
+  padding: 10px;
+  background: $white;
+  border-radius: 50%;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.txt-detail {
+  display: block;
+}
+
+.offer-item .offer-price {
+  border: 1px solid $chocolate;
+}
+
+.offer-item .offer-price {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: block;
+  width: 92px;
+  height: 92px;
+  line-height: 92px;
+  border-radius: 92px;
+  transform: translate(0, -50%);
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: .5px;
+}
