@@ -6,11 +6,17 @@
         <%= image_tag find_img_food(f.id).first.image.url, class:"card-img-top"%>
         <div class="card-body">
           <h5 class="card-title"><%= link_to f.name, f %></h5>
-          <%= link_to find_restaurant(f.restaurant_id).name, restaurant_restaurant_foods_path(f.restaurant_id) %>
-          <p class="card-text"><i class="fa fa-usd" aria-hidden="true"></i>&nbsp;<%= f.price %></p>
+          <ul>
+            <li>
+              <%= link_to find_restaurant(f.restaurant_id).name, restaurant_restaurant_foods_path(f.restaurant_id) %>
+            </li>
+            <li>
+              <p class="card-text"><i class="fa fa-usd" aria-hidden="true"></i>&nbsp;<%= f.price %></p>
+            </li>
+          </ul>
+          <%= link_to t("food.submit.order"), restaurant_restaurant_foods_path(f.restaurant_id) %>
         </div>
       </div>
     </div>
   <% end %>
-  <%= paginate @foods, theme: "twitter-bootstrap-3" %>
 </div>

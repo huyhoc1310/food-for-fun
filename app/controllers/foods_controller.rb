@@ -5,10 +5,9 @@ class FoodsController < ApplicationController
   before_action :get_categories, only: [:new, :edit]
   before_action :get_images, only: [:edit, :show]
   before_action :load_foods, only: :index
+  before_action :load_restaurant, only: :show
 
-  def index
-    @foods = Food.all.page(params[:page]).per Settings.rows
-  end
+  def index; end
 
   def show
     @category = Food.category params[:id]
@@ -87,7 +86,11 @@ class FoodsController < ApplicationController
   end
 
   def load_foods
-    @foods = Food.all
+    @foods = Food.all.page(params[:page]).per Settings.rows
     @foods = Food.by_category params[:category] if params[:category]
+  end
+
+  def load_restaurant
+    @restaurant = Restaurant.find_by id: params[:restaurant_id]
   end
 end

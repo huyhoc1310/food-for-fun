@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Manager::CategoriesController < ApplicationController
   before_action :is_manager?
   before_action :load_restaurant
   before_action :load_categories
