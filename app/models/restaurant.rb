@@ -8,6 +8,7 @@ class Restaurant < ApplicationRecord
   has_many :passive_relationships, class_name: Relationship.name,
            foreign_key: :restaurant_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :categories, dependent: :destroy
 
   scope :sort_restaurants, (lambda do
     select(:id, :name, :description, :address, :phone_number, :user_id)

@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 2018_08_19_033805) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "parent_id"
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
+    t.index ["restaurant_id"], name: "index_categories_on_restaurant_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -175,6 +179,7 @@ ActiveRecord::Schema.define(version: 2018_08_19_033805) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "categories", "restaurants"
   add_foreign_key "comments", "foods"
   add_foreign_key "comments", "users"
   add_foreign_key "foods", "categories"

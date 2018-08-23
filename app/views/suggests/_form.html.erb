@@ -2,10 +2,10 @@
   <div class="modal-body">
     <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.label :title %>
+    <%= f.label :title, class: "required" %>
     <%= f.text_field :title, class: "form-control" %>
 
-    <%= f.label :content %>
+    <%= f.label :content, class: "required" %>
     <%= f.text_area :content, class: "form-control" %>
   </div>
   <div class="modal-footer">

@@ -20,7 +20,7 @@ User.create!(name: "user2",
 
 5.times do |n|
   name = Faker::Name.name
-  email = "demo-#{n+1}@gmail.com"
+  email = "demo-#{n+2}@gmail.com"
   address = "Ha Noi"
   phone_number = "016548522"
   password = "password"
@@ -48,5 +48,6 @@ Restaurant.create!(name: "Restaurant B",
 
 5.times do |n|
   name = "category-#{n+1}"
-  Category.create!(name:  name)
+  Category.create!(name:  name,
+                   restaurant_id: 1)
 end

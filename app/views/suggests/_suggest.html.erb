@@ -1,16 +1,30 @@
-<div class="row suggest">
-  <div class="col-md-3"></div>
-  <div class="col-md-8">
-    <strong><%= suggest.title %></strong>
-    <br>
-    <%= suggest.content %>
-    <br>
-    <%= l suggest.updated_at, format: :default %>
-    <% if current_user.current_user? suggest.user %>
-      <%= link_to [@restaurant, suggest], remote: true, method: :delete,
-        class: "float-right", data: {confirm: t(".you_sure")} do %>
-        <i class="fa fa-trash"></i>
+<div class="suggest">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>
+        <i class="fa fa-user"></i>
+        <%= suggest.user.name %>
+      </strong>
+    </div>
+    <div class="col-md-3 sgt-day">
+      <%= l suggest.updated_at, format: :default %>
+    </div>
+    <div class="col-md-6">
+      <% if current_user.current_user? suggest.user %>
+        <%= link_to [@restaurant, suggest], remote: true, method: :delete,
+          class: "float-right", data: {confirm: t(".you_sure")} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="row col-md-12 cmt-body">
+    <div class="col-md-4">
+      <b><%= suggest.title %></b>
+    </div>
+    <div class="col-md-8">
+      <%= suggest.content %>
+    </div>
   </div>
 </div>

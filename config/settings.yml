@@ -13,6 +13,9 @@ model:
   suggests:
     title:
       maximum: 255
+  categories:
+    name:
+      maximum: 50
 session:
   remember_me: 1
 timeout:
