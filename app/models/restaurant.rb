@@ -10,6 +10,9 @@ class Restaurant < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :categories, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode
+
   scope :sort_restaurants, (lambda do
     select(:id, :name, :description, :address, :phone_number, :user_id)
     .order :name

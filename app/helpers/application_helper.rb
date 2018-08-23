@@ -14,4 +14,10 @@ module ApplicationHelper
       Order.new
     end
   end
+
+  def google_map center
+    "https://maps.googleapis.com/maps/api/staticmap?center="\
+    "#{center.latitude},#{center.longitude}&zoom=14&size=400x400"\
+    "&key=#{ENV['GMAP_KEY']}"
+  end
 end
