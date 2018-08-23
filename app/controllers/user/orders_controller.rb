@@ -18,4 +18,15 @@ class User::OrdersController < ApplicationController
       redirect_to order_details_url
     end
   end
+
+  def confirm_receive
+    @order = Order.find_by_id params[:order_id]
+    if @order.update_attributes status: :received
+      flash[:success] = t "order.message.confirm_received_success"
+      redirect_to user_orders_url
+    else
+      flash[:danger] = t "order.message.confirm_received_failure"
+      redirect_to user_orders_url
+    end
+  end
 end
