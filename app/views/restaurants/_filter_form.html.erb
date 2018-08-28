@@ -1,4 +1,5 @@
 <%= form_tag restaurants_path, method: :get, id: "filter" do %>
   <%= select_tag :city, options_for_select([t(".hanoi"), t(".hcm")], params[:city]),
-    class: "form-control btn", prompt: t(".city"), onchange: "$('#filter').submit();" %>
+    class: "form-control btn", prompt: t(".city"),
+    onchange: "$('#filter').submit();" %>
 <% end %>

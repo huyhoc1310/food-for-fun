@@ -27,21 +27,3 @@ User.create!(name: "user3",
              password_confirmation: "123456",
              activated: true,
              activated_at: Time.zone.now)
-
-Restaurant.create!(name: "Restaurant A",
-             description: "this is the great restaurant.",
-             address: "146 xuan thuy, cau giay, ha noi",
-             phone_number: "02548352",
-             user_id: 2)
-
-Restaurant.create!(name: "Restaurant B",
-             description: "this is the great restaurant.",
-             address: "xuan thuy, cau giay, ha noi",
-             phone_number: "02548352",
-             user_id: 1)
-
-5.times do |n|
-  name = "category-#{n+1}"
-  Category.create!(name:  name,
-                   restaurant_id: 1)
-end
