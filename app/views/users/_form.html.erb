@@ -1,27 +1,30 @@
 <%= form_for(@user) do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
-  <%= f.label :name %>
+  <%= f.label :name, class:"required" %>
   <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label :email %>
+  <%= f.label :email, class:"required" %>
   <%= f.email_field :email, class: "form-control" %>
 
-  <%= f.label :address %>
+  <%= f.label :address, class:"required" %>
   <%= f.text_field :address, class: "form-control" %>
 
-  <%= f.label :phone %>
+  <%= f.label :phone, class:"required" %>
   <%= f.text_field :phone_number, class: "form-control" %>
 
-  <%= f.label :password %>
+  <%= f.label :password, class:"required" %>
   <%= f.password_field :password, class: "form-control" %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, class:"required" %>
   <%= f.password_field :password_confirmation, class: "form-control" %>
 
-  <%= f.label :registered_as %>
-  <%= f.radio_button :role, "user" %> <%= t ".user" %>
-  <%= f.radio_button :role, "manager" %> <%= t ".manager" %>
-
+  <%= f.label :registered_as, class:"required" %>
+  <div class="form-group row">
+    <div class="col-md-4"><%= f.radio_button :role, "user" %></div>
+    <div class="col-md-8"><%= f.label :role_user, t(".user") %></div>
+    <div class="col-md-4"> <%= f.radio_button :role, "manager" %></div>
+    <div class="col-md-8"><%= f.label :role_manager, t(".manager") %></div>
+  </div>
   <%= f.submit yield(:button_text), class: "btn btn-secondary" %>
 <% end %>
