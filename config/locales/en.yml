@@ -5,13 +5,12 @@ en:
       brand: "Food for fun"
       home: "Home"
       restaurants: "Restaurants"
-      new_food: "New Food"
       orders: "Orders"
       search: "Search"
       logout: "Logout"
       signup: "Sign up"
       signin: "Sign in"
-      foods: "All foods"
+      foods: "Foods"
       users: "Users"
       menus: "Menu"
       result_search: "Not found!"
@@ -71,6 +70,7 @@ en:
     comment_updated: "Comment is updated!"
     not_found_comment: "Comment not found!"
     create_category_success: "Create new category successlly!"
+    not_found: "No matching results found!"
   sessions:
     new:
       remember_me: "Remember me"
@@ -177,17 +177,20 @@ en:
         edit: "Edit"
         delete: "Delete"
         revenue: "Revenue"
+        add_food: "Add food"
+        add_cate: "Add category"
       edit:
         title: "Edit restaurant"
         save: "Save"
       show:
         revenue_chart: "Revenue per day statistic chart"
         most_ordered: "Most ordered foods"
-
+    foods:
+      new:
+        category: "New Category"
   food:
     message:
-      create_fail: "Create food fail!"
-      create_success: "Create food success!"
+      create_success: "Create new food successfully!"
       update_success: "Update food success!"
       update_fail: "Update food fail!"
       not_found: "Food not found!"
@@ -206,12 +209,11 @@ en:
       edit: "Edit food"
       create: "Create a food for restaurant"
     label:
-      name: "Name of food"
-      description: "Description for food"
-      price: "Price "
-      image: "Choose image for food"
-      category: "Category for food"
-      restaurant: "Choose restaurant"
+      name: "Name"
+      description: "Description"
+      price: "Price ($) "
+      image: "Image"
+      category: "Category"
     error:
       name: "Name is not blank!"
       description: "Description is not blank!"

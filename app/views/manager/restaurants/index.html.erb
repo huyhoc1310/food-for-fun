@@ -3,7 +3,9 @@
 <div class="row justify-content-center">
   <div class="col-md-12 text-center">
     <table class="table table-striped">
-      <%= render @restaurants %>
+      <% if !@restaurants.nil? %>
+        <%= render @restaurants %>
+      <% end %>
     </table>
     <%= link_to t(".create"), new_manager_restaurant_path,
                 class: "btn btn-primary" %>

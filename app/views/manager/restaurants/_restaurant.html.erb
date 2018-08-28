@@ -7,4 +7,12 @@
     <%= link_to t(".edit"), edit_manager_restaurant_path(restaurant),
       class: "submit-btn" %>
   </td>
+  <td>
+    <%= link_to t(".add_cate"), new_manager_restaurant_category_path(restaurant),
+      class: "submit-btn" %>
+  </td>
+  <td>
+    <%= link_to t(".add_food"), new_manager_restaurant_food_path(restaurant),
+      class: "submit-btn" %>
+  </td>
 </tr>

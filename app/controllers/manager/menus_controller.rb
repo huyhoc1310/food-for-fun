@@ -29,7 +29,7 @@ class Manager::MenusController < ApplicationController
 
   def find_food
     @food = Food.find_by_id params[:id]
-    @categories = Category.all
+    @categories = @food.restaurant.categories
     restaurant_id = @food.restaurant_id
     return if @food.nil?
   end

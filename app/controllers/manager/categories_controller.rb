@@ -1,4 +1,5 @@
-class CategoriesController < ApplicationController
+class Manager::CategoriesController < ApplicationController
+  before_action :logged_in_user, only: %i(create destroy)
   before_action :is_manager?
   before_action :load_restaurant
   before_action :load_categories
@@ -12,7 +13,7 @@ class CategoriesController < ApplicationController
     @category = @restaurant.categories.build category_params
     if @category.save
       flash[:success] = t "flashs.create_category_success"
-      redirect_to @restaurant
+      redirect_back_or @restaurant
     else
       render :new
     end
