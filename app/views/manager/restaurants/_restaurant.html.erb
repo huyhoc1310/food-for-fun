@@ -1,7 +1,8 @@
 <tr>
-  <td><%= link_to restaurant.name, manager_restaurant_path(restaurant) %></td>
+  <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
   <td><%= restaurant.address %></td>
   <td><%= restaurant.phone_number %></td>
+  <td><%= link_to t(".revenue"), manager_restaurant_path(restaurant) %></td>
   <td class="action-btn">
     <%= link_to t(".edit"), edit_manager_restaurant_path(restaurant),
       class: "submit-btn" %>

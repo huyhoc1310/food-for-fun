@@ -38,6 +38,7 @@ en:
       address: "Address"
       phone: "Phone number"
       delete: "Delete"
+      revenue: "Revenue"
       function: "#"
       restaurant: "Restaurant"
       description: "Description"
@@ -175,6 +176,7 @@ en:
       restaurant:
         edit: "Edit"
         delete: "Delete"
+        revenue: "Revenue"
       edit:
         title: "Edit restaurant"
         save: "Save"
