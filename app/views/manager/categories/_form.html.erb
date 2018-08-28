@@ -8,7 +8,7 @@
 
   <%= f.fields_for :images do |image| %>
     <%= image.label :image, class: "required" %><br>
-    <%= image.file_field :image, accept: Settings.accept_img %>
+    <%= image.file_field :image, accept: Settings.accept_img, required: true %>
   <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-secondary col-md-3" %>

@@ -20,20 +20,21 @@
       </div>
     <% end %>
   </div>
-  <div class="row cmt-footer">
-    <div class="col-md-3">
-      <% if current_user.current_user? @food.restaurant.user %>
-        <%= link_to t(".reply"), food_comment_reply_path(@food, comment),
-          remote: true %>&nbsp;
-      <% end %>
-      <% if current_user.current_user? comment.user %>
-        <%= link_to t(".edit"), [:edit, @food, comment], remote: true %>&nbsp;
-        <%= link_to t(".delete"), [@food, comment], remote: true, method: :delete,
-          data: {confirm: t(".you_sure")} %>
-      <% end %>
+  <% if logged_in? %>
+    <div class="row cmt-footer">
+      <div class="col-md-3">
+        <% if current_user.current_user? @food.restaurant.user %>
+          <%= link_to t(".reply"), food_comment_reply_path(@food, comment),
+            remote: true %>&nbsp;
+        <% end %>
+        <% if current_user.current_user? comment.user %>
+          <%= link_to t(".edit"), [:edit, @food, comment], remote: true %>&nbsp;
+          <%= link_to t(".delete"), [@food, comment], remote: true, method: :delete,
+            data: {confirm: t(".you_sure")} %>
+        <% end %>
+      </div>
     </div>
-  </div>
-
+  <% end %>
   <% if comment.replies.any? %>
     <% comment.replies.each do |reply| %>
       <%= render reply %>

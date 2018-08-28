@@ -8,7 +8,8 @@
           <h5 class="card-title"><%= link_to f.name, f %></h5>
           <ul>
             <li>
-              <%= link_to find_restaurant(f.restaurant_id).name, restaurant_restaurant_foods_path(f.restaurant_id) %>
+              <%= link_to find_restaurant(f.restaurant_id).name,
+                restaurant_path(f.restaurant_id) %>
             </li>
             <li>
               <p class="card-text"><i class="fa fa-usd" aria-hidden="true"></i>&nbsp;<%= f.price %></p>

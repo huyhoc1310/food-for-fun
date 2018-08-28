@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :restaurants, except: :destroy do
       resources :categories
+      resources :foods, only: [:new, :create, :edit, :update]
     end
     resources :orders, only: [:index, :update] do
       patch "/cancel_order", to: "orders#cancel_order"
@@ -47,7 +48,6 @@ Rails.application.routes.draw do
     member do
       get :followers
     end
-    resources :categories
   end
 
   resources :foods do

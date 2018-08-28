@@ -14,27 +14,38 @@
                       class: "nav-link text-dark" %>
         </li>
       <% end %>
+      <% if logged_in? && is_admin? %>
+        <li class="nav-item mx-2">
+          <%= link_to t(".users"), admin_users_path,
+                      class: "nav-link text-dark" %>
+        </li>
+      <% end %>
       <% if logged_in? && is_manager? %>
         <li class="nav-item mx-2">
-          <%= link_to manager_restaurants_path,
-            class: "nav-link text-dark" do %>
-            <%= t ".restaurants" %>&nbsp;<i class="fa fa-cutlery"></i>
-          <% end %>
+          <%= link_to t(".restaurants"), manager_restaurants_path,
+            class: "nav-link text-dark" %>
         </li>
         <li class="nav-item mx-2">
-          <%= link_to new_food_path,
-            class: "nav-link text-dark" do %>
-            <%= t ".new_food" %>&nbsp;<i class="fa fa-plus-circle"></i>
-          <% end %>
+          <%= link_to t(".foods"), foods_path, class: "nav-link text-dark" %>
         </li>
         <li class="nav-item mx-2">
-          <%= link_to manager_orders_path, class: "nav-link text-dark" do %>
-            <%= t ".orders" %>&nbsp;<i class="fa fa-pencil"></i>
-          <% end %>
+          <%= link_to t(".orders"), manager_orders_path, class: "nav-link text-dark" %>
         </li>
         <li class="nav-item mx-2">
           <%= link_to manager_notifications_path, class: "nav-link text-dark" do %>
-            <i class="fa fa-bell" data-toggle="tooltip" title="Notification orders success"></i>
+            <i class="fa fa-bell" data-toggle="tooltip" title="Notification"></i>
+            <% end %>
+        </li>
+      <% elsif logged_in? && is_admin? %>
+        <li class="nav-item mx-2">
+          <%= link_to t(".restaurants"), admin_restaurants_path,
+            class: "nav-link text-dark" %>
+        </li>
+      <% elsif logged_in? && is_user? %>
+        <li class="nav-item mx-2">
+          <%= link_to order_details_path, class: "nav-link text-dark" do %>
+            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:24px">
+            </i>
             <% end %>
         </li>
       <% elsif logged_in? && is_admin? %>
@@ -70,7 +81,6 @@
     <% if current_user.blank? %>
       <%= link_to t(".signup"), signup_path, class: "btn navbar-btn btn-secondary mx-2 shadowed" %>
     <% end %>
-
     <% if logged_in? %>
       <div class="btn-group">
         <%= link_to "#", class: "btn btn-outline-success dropdown-toggle",
@@ -85,6 +95,8 @@
         </div>
       </div>
     <% else %>
+      <%= link_to t(".signup"), signup_path,
+        class: "btn navbar-btn btn-secondary mx-2 shadowed" %>
       <%= link_to t("layouts.header.signin"), signin_path,
         class: "btn btn-success navbar-btn" %>
     <% end %>

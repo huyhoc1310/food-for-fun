@@ -22,7 +22,7 @@
                 <%= link_to f.name, food_path(f.id) %>
               </p>
               <div class="row">
-                <% find_img_food(f.id).each do |i| %>
+                <% f.images.each do |i| %>
                   <div class="col-md-3">
                     <%= image_tag i.image.url, class: "img-food", crop: :fill %>
                   </div>

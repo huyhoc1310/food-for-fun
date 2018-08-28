@@ -1,4 +1,4 @@
-<%= form_for @food do |f| %>
+<%= form_for [:manager, @food] do |f| %>
   <div class="col-md-6" id="edit_food">
     <h1><strong><%= t "food.title.edit" %></strong></h1>
     <%= f.label :name, t("food.label.name"), class: "required" %>
